@@ -1,0 +1,3 @@
+172.19.0.1 - - [12/Oct/2021:08:24:50 +0000] "GET /api/v1/user/me HTTP/1.1" 500 607700 "-" "PostmanRuntime/7.28.4" "-"
+172.19.0.1 - - [12/Oct/2021:08:27:04 +0000] "GET /api/v1/user/me HTTP/1.1" 500 607715 "-" "PostmanRuntime/7.28.4" "-"
+172.19.0.1 - - [12/Oct/2021:08:38:42 +0000] "GET /api/v1/user/me HTTP/1.1" 500 607246 "-" "PostmanRuntime/7.28.4" "-"
