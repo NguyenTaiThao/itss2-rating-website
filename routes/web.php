@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
+
+
+Route::group(['prefix'=>'brand'], function(){
+    Route::get('/login', function () {
+        return view('auth.brand.login');
+    });
+});
+
+
+Route::group(['prefix'=>'admin'], function(){
+    Route::get('/login', function () {
+        return view('auth.admin.login');
+    });
 });
