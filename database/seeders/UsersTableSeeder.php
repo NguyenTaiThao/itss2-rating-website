@@ -22,7 +22,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('secret'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ],
             [
                 'name' => 'Admin Thao',
@@ -30,7 +31,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('123123'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ],
             [
                 'name' => 'Admin Mung',
@@ -38,7 +40,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('123123'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ],
             [
                 'name' => 'Admin Long',
@@ -46,7 +49,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('123123'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ],
             [
                 'name' => 'Admin Quang',
@@ -54,7 +58,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('123123'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ],
             [
                 'name' => 'Admin Luat',
@@ -62,7 +67,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('123123'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ],
             [
                 'name' => 'Admin Chien',
@@ -70,7 +76,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => Hash::make('123123'),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'company_category_id' => 1
             ]
         ]);
     }
