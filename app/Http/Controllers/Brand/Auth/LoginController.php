@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Brand\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -42,5 +42,10 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('brand');
+    }
+
+    public function showLoginForm()
+    {
+        return view('auth.brand.login');
     }
 }
