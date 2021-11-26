@@ -71,7 +71,7 @@ return [
 
         'brands' => [
             'driver' => 'eloquent',
-            'table' => App\Models\Brand::class,
+            'model' => App\Models\Brand::class,
         ],
     ],
 

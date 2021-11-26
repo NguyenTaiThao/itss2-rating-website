@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Brand;
+
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
