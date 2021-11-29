@@ -26,9 +26,9 @@
             <!-- Navbar items -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="{{ route('home') }}">
+                    <a class="nav-link nav-link-icon" href="{{ route('brand.login') }}">
                         <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text">{{ __('Dashboard') }}</span>
+                        <span class="nav-link-inner--text">{{ __('Boost your brand up') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">

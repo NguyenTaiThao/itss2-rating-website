@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Brand;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\User;
 use App\Http\Requests\UserRequest;

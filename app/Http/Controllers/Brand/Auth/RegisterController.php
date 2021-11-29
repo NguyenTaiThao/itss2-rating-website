@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Brand\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -74,6 +74,10 @@ class RegisterController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('user');
+        return Auth::guard('brand');
+    }
+    public function showRegistrationForm()
+    {
+        return view('auth.brand.register');
     }
 }

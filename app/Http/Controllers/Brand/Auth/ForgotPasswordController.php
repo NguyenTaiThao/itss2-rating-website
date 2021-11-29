@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Brand\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -23,6 +23,6 @@ class ForgotPasswordController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('user');
+        return Auth::guard('brand');
     }
 }

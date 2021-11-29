@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAttributeToUsersTable extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,17 @@ class AddAttributeToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('logo_path');
             $table->unsignedBigInteger('company_category_id');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
+
             $table->foreign('company_category_id')->references('id')->on('company_categories');
         });
     }
@@ -26,8 +35,6 @@ class AddAttributeToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('company_category_id');
-        });
+        Schema::dropIfExists('brands');
     }
 }

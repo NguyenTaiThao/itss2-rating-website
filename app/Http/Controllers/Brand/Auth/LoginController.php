@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Brand\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::BRAND_HOME;
 
     /**
      * Create a new controller instance.
@@ -36,11 +36,16 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:brand')->except('logout');
+        $this->middleware('guest')->except('logout');
     }
 
     protected function guard()
     {
-        return Auth::guard('user');
+        return Auth::guard('brand');
+    }
+
+    public function showLoginForm()
+    {
+        return view('auth.brand.login');
     }
 }
