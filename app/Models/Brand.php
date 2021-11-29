@@ -13,5 +13,5 @@ class Brand extends Authenticatable
 
     protected $table = "brands";
 
-    // protected $guard = 'brand';
+    protected $guard = 'brand';
 }

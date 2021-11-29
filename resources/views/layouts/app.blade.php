@@ -21,11 +21,16 @@
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     </head>
     <body class="{{ $class ?? '' }}">
-        @auth()
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @auth('brand')
+            <form id="logout-form" action="{{ route('brand.logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
             @include('layouts.navbars.sidebar')
+        @endauth
+        @auth('user')
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         @endauth
         
         <div class="main-content">
