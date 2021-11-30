@@ -17,7 +17,7 @@ class HomeController extends Controller
             return Redirect('brand/home');
         }
 
-        return view('welcome');
+        return view('home.index');
     }
 
     public function index()

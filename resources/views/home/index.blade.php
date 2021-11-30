@@ -4,6 +4,16 @@
 <div class="main-content">
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
         <div class="container-fluid">
+            <section class="text-center">
+                <div class="container">
+                    <h1 class="jumbotron-heading text-white">Show people how good brands are </h1>
+                    <p class="lead text-light">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+                    <p>
+                        <a href="{{route('home')}}" class="btn btn-primary my-2">Explore all reviews</a>
+                        <a href="" class="btn btn-secondary my-2">Write your feelings</a>
+                    </p>
+                </div>
+            </section>
         </div>
     </div>
     <div class="album py-5 bg-white">
