@@ -13,7 +13,8 @@ class PostController extends Controller
         return view('posts.index');
     }
 
-    public function show(Post $post){
+    public function show(Post $post)
+    {
         return view('posts.show');
     }
 
@@ -24,6 +25,11 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        return view('posts.create', $post);
+        return view('posts.create', ['data' => $post]);
+    }
+
+    public function review(Request $request, Post $post)
+    {
+        return view('posts.review', ['date' => $post]);
     }
 }
