@@ -84,7 +84,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-user-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link active" href="#navbar-user-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-user-management">
                         <i class="far fa-user" style="color: #f4645f;"></i>
                         <span class="nav-link-text">{{ __('User management') }}</span>
                     </a>
@@ -106,7 +106,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-post-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link active" href="#navbar-post-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-post-management">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text">{{ __('Post Management') }}</span>
                     </a>
@@ -128,7 +128,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-review-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link active" href="#navbar-review-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-review-management">
                         <i class="far fa-star" style="color: #ffd600 ;"></i>
                         <span class="nav-link-text">{{ __('Review Management') }}</span>
                     </a>
@@ -137,12 +137,12 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('brand.review') }}">
-                                    {{ __('Review List') }}
+                                    {{ __('Recent Reviews') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('brand.review.spam') }}">
-                                    {{ __('Review Delete') }}
+                                    {{ __('Spam Reviews') }}
                                 </a>
                             </li>
                         </ul>
