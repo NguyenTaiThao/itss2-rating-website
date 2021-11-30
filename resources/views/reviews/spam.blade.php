@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('User Manager')])
+@extends('layouts.app', ['title' => __('Review Manager')])
 
 @section('content')
 <div class="main-content">
@@ -13,10 +13,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Posts</h3>
+                                <h3 class="mb-0">Reviews</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('brand.post.create')}}" class="btn btn-sm btn-primary">Add post</a>
+                                <a href="{{route('brand.review.spam')}}" class="btn btn-sm btn-primary">Spam reviews</a>
                             </div>
                         </div>
                     </div>
@@ -28,22 +28,29 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Content</th>
-                                    <th scope="col">Creation Date</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Post</th>
+                                    <th scope="col">Review point</th>
+                                    <th scope="col">Review content</th>
+                                    <th scope="col">Reviewer</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Nike 1011</td>
+                                    <td>12/02/2020 11:00</td>
+                                    <td>Nike 1001</td>
+                                    <td>
+                                        0.5
+                                        <i class="fas fa-star text-yellow"></i>
+                                    </td>
                                     <td>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     </td>
-                                    <td>12/02/2020 11:00</td>
+                                    <td>Lorem</td>
                                     <td>
-                                        <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
+                                        <span class="badge bg-danger text-white">spam</span>
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown">
@@ -51,7 +58,7 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
+                                                <a class="dropdown-item" href="">Mark as unspam</a>
                                                 <a class="dropdown-item" href="">Delete</a>
                                             </div>
                                         </div>
@@ -59,13 +66,18 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Nike 2011</td>
+                                    <td>12/02/2020 11:00</td>
+                                    <td>Nike 2001</td>
+                                    <td>
+                                        1.5
+                                        <i class="fas fa-star text-yellow"></i>
+                                    </td>
                                     <td>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     </td>
-                                    <td>12/02/2020 11:00</td>
+                                    <td>Lorem</td>
                                     <td>
-                                        <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/b3cfc983-ec31-49a7-bbe1-c21764e0f355/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
+                                        <span class="badge bg-danger text-white">spam</span>
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown">
@@ -73,7 +85,7 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
+                                                <a class="dropdown-item" href="">Mark as unspam</a>
                                                 <a class="dropdown-item" href="">Delete</a>
                                             </div>
                                         </div>

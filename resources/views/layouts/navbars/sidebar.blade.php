@@ -136,12 +136,12 @@
                     <div class="collapse show" id="navbar-review-management">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('brand.profile.edit') }}">
+                                <a class="nav-link" href="{{ route('brand.review') }}">
                                     {{ __('Review List') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('brand.user.index') }}">
+                                <a class="nav-link" href="{{ route('brand.review.spam') }}">
                                     {{ __('Review Delete') }}
                                 </a>
                             </li>

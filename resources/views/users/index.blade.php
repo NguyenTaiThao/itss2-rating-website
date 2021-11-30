@@ -16,7 +16,7 @@
                                 <h3 class="mb-0">Posts</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="" class="btn btn-sm btn-primary">Add brands</a>
+                                <a href="" class="btn btn-sm btn-primary">Add user</a>
                             </div>
                         </div>
                     </div>
@@ -75,8 +75,22 @@
                         </table>
                     </div>
                     <div class="card-footer py-4">
-                        <nav class="d-flex justify-content-end" aria-label="...">
-
+                        <nav class="d-flex justify-content-center" aria-label="...">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </nav>
                     </div>
                 </div>
