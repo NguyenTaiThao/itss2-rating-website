@@ -7,6 +7,7 @@ use App\Http\Controllers\Brand\Auth\LoginController as BrandLoginController;
 use App\Http\Controllers\Brand\Auth\RegisterController as BrandRegisterController;
 use App\Http\Controllers\Brand\Auth\ForgotPasswordController as BrandForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -62,30 +63,32 @@ Route::group(['prefix' => 'brand'], function () {
         Route::post('register', [
             BrandRegisterController::class, 'register'
         ]);
-    });
-    Route::group(['middleware' => 'auth:brand'], function () {
-        Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::resource('user', UserController::class, ['except' => ['show']]);
+        Route::group(['middleware' => 'auth:brand'], function () {
+            Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
-        Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-        // Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-        // Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+            Route::resource('user', UserController::class, ['except' => ['show']]);
 
-        Route::get('upgrade', function () {
-            return view('pages.upgrade');
-        })->name('upgrade');
-        Route::get('map', function () {
-            return view('pages.maps');
-        })->name('map');
-        Route::get('icons', function () {
-            return view('pages.icons');
-        })->name('icons');
-        Route::get('table-list', function () {
-            return view('pages.tables');
-        })->name('table');
+            Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
+            Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+            Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
+
+            Route::get('post-management', [PostController::class, 'index'])->name('post');
+            Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+            Route::get('post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+
+            Route::get('upgrade', function () {
+                return view('pages.upgrade');
+            })->name('upgrade');
+            Route::get('map', function () {
+                return view('pages.maps');
+            })->name('map');
+            Route::get('icons', function () {
+                return view('pages.icons');
+            })->name('icons');
+            Route::get('table-list', function () {
+                return view('pages.tables');
+            })->name('table');
+        });
     });
 });

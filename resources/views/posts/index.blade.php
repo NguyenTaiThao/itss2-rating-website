@@ -16,7 +16,7 @@
                                 <h3 class="mb-0">Posts</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="" class="btn btn-sm btn-primary">Add brands</a>
+                                <a href="{{route('brand.post.create')}}" class="btn btn-sm btn-primary">Add post</a>
                             </div>
                         </div>
                     </div>
@@ -28,19 +28,23 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Content</th>
                                     <th scope="col">Creation Date</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Admin Admin</td>
+                                    <td>Nike 1011</td>
                                     <td>
-                                        <a href="mailto:admin@argon.com">admin@argon.com</a>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     </td>
                                     <td>12/02/2020 11:00</td>
+                                    <td>
+                                        <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
+                                    </td>
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,12 +57,16 @@
                                         </div>
                                     </td>
                                 </tr>
+                                
                                 <tr>
-                                    <td>Admin 2</td>
+                                    <td>Nike 2011</td>
                                     <td>
-                                        <a href="mailto:admin@argon.com">admin@argon.com</a>
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     </td>
                                     <td>12/02/2020 11:00</td>
+                                    <td>
+                                        <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/b3cfc983-ec31-49a7-bbe1-c21764e0f355/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
+                                    </td>
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
