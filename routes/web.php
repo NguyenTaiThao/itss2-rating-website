@@ -28,6 +28,7 @@ Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('post.show');
 
 Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
     Route::get('login', [

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('User Manager')])
+@extends('layouts.app', ['title' => __('Posts')])
 
 @section('content')
 <div class="main-content">

@@ -8,9 +8,13 @@ use Laravel\Ui\Presets\React;
 
 class PostController extends Controller
 {
-    public function index(Post $model)
+    public function index(Post $post)
     {
         return view('posts.index');
+    }
+
+    public function show(Post $post){
+        return view('posts.show');
     }
 
     public function create(Request $request)
