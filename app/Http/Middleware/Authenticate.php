@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\Facades\URL;
 
 class Authenticate extends Middleware
 {
@@ -14,8 +16,20 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        $previousURL = URL::previous();
+        $route = app('router')->getRoutes($previousURL)->match(app('request')->create($previousURL))->getName();
+        $firstNameSpace = explode('.', $route)[0];
+
+        if($firstNameSpace == 'brand'){
+            return route('brand.login');
+        }
+
+        if($firstNameSpace == 'admin'){
+            return route('brand.login');
+        }
+
         if (! $request->expectsJson()) {
-            return route('home');
+            return route('login');
         }
     }
 }
