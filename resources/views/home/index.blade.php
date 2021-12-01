@@ -27,7 +27,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="{{route('post.show',['id'=>1])}}" class="btn btn-sm btn-outline-secondary">View</a>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Review product</button>
+                                    <a href="{{route('post.review', ['id'=>1])}}" class="btn btn-sm btn-outline-secondary">Review product</a>
                                 </div>
                                 <small class="text-muted">9 mins</small>
                             </div>
@@ -42,7 +42,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="{{route('post.show',['id'=>1])}}" class="btn btn-sm btn-outline-secondary">View</a>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Review product</button>
+                                    <a href="{{route('post.review', ['id'=>1])}}" class="btn btn-sm btn-outline-secondary">Review product</a>
                                 </div>
                                 <small class="text-muted">9 mins</small>
                             </div>
@@ -57,7 +57,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="{{route('post.show',['id'=>1])}}" class="btn btn-sm btn-outline-secondary">View</a>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Review product</button>
+                                    <a href="{{route('post.review', ['id'=>1])}}" class="btn btn-sm btn-outline-secondary">Review product</a>
                                 </div>
                                 <small class="text-muted">9 mins</small>
                             </div>
