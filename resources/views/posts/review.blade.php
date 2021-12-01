@@ -21,8 +21,21 @@
                 </div>
             </div>
 
-            <div class="row mt-5">
-                
-            </div>
+            <form action="" class="row mt-5 pt-5">
+                <div class="col-md-12">
+                    <h3>Tell people what do you think about this post?</h3>
+                </div>
+
+                <div class="col-md-12">
+                    <input name="input-name" type="number" class="rating" min=0 max=5 step=0.5 data-size="lg" showclear=false showcaption=false>
+                    <div class="mt-2">
+                        <textarea rows=5 class="form-control w-100"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center mt-3">
+                <button type="reset" class="btn btn-md btn-secondary">Reset</button>
+                    <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                </div>
+            </form>
         </div>
         @endsection
