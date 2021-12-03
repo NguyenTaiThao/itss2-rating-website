@@ -16,19 +16,31 @@ class ProductCategorySeeder extends Seeder
     {
         DB::table('product_categories')->insert([
             [
-                'name' => 'Shoes',
+                'name' => '靴',
             ],
             [
-                'name' => 'Beer',
+                'name' => '衣服',
             ],
             [
-                'name' => 'Wine',
+                'name' => 'マフラー',
             ],
             [
-                'name' => 'Clothings',
+                'name' => '帽子',
             ],
             [
-                'name' => 'Glasses',
+                'name' => 'ワイン',
+            ],
+            [
+                'name' => 'ビール',
+            ],
+            [
+                'name' => 'スマホ',
+            ],
+            [
+                'name' => 'タブレット',
+            ],
+            [
+                'name' => 'タブレット',
             ],
         ]);
     }

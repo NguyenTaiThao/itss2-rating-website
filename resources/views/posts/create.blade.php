@@ -25,26 +25,36 @@
 
 
                         <!-- start create form -->
-                        <form>
+                        <form method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="form-group">
                                             <label for="title">Title</label>
-                                            <input type="text" class="form-control" name="" id="title" aria-describedby="titleHelper" placeholder="Enter title">
+                                            <input value="{{old('title')}}" type="text" class="form-control" name="title" id="title" aria-describedby="titleHelper" placeholder="Enter title">
+                                            @if($errors->has('title'))
+                                            <div class="text-danger">{{ $errors->first('title') }}</div>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="content">Content</label>
-                                            <textarea name="content" id="content" class="form-control" cols="30" rows="10"></textarea>
+                                            <textarea name="content" id="content" class="form-control" cols="30" rows="10">{{old('content')}}</textarea>
+                                            @if($errors->has('content'))
+                                            <div class="text-danger">{{ $errors->first('content') }}</div>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="product_category_id">Product type</label>
-                                            <select id="product_category_id" name="product_category_id" class="form-control">
+                                            <select value="{{old('product_category_id')}}" id="product_category_id" name="product_category_id" class="form-control">
                                                 <option selected disabled>Choose product's category</option>
-                                                <option value="phone">Điện thoại di động</option>
-                                                <option value="laptop">Laptop</option>
-                                                <option value="refri">Tủ lạnh</option>
+                                                @foreach($productTypes as $productType)
+                                                <option value="{{$productType->id}}" {{old("product_category_id") == $productType->id ? "selected" : ""}}>{{$productType->name}}</option>
+                                                @endforeach
                                             </select>
+                                            @if($errors->has('product_category_id'))
+                                            <div class="text-danger">{{ $errors->first('product_category_id') }}</div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-md-5">
@@ -53,8 +63,11 @@
                                             <div class="file-drop-area">
                                                 <span class="choose-file-button">Choose Files</span>
                                                 <span class="file-message">Select or drag and drop files here</span>
-                                                <input type="file" name="image" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif">
+                                                <input type="file" name="image" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif" value="{{old('image')}}">
                                             </div>
+                                            @if($errors->has('image'))
+                                            <div class="text-danger">{{ $errors->first('image') }}</div>
+                                            @endif
                                         </div>
                                         <div id="divImageMediaPreview"> </div>
                                     </div>

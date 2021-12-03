@@ -36,12 +36,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($posts as $post)
                                 <tr>
-                                    <td>Nike 1011</td>
+                                    <td>{{$post->title}}</td>
                                     <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        {{$post->content}}
                                     </td>
-                                    <td>12/02/2020 11:00</td>
+                                    <td> {{$post->created_at}}</td>
                                     <td>
                                         <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
                                     </td>
@@ -57,28 +58,7 @@
                                         </div>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>Nike 2011</td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </td>
-                                    <td>12/02/2020 11:00</td>
-                                    <td>
-                                        <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/b3cfc983-ec31-49a7-bbe1-c21764e0f355/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
-                                                <a class="dropdown-item" href="">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

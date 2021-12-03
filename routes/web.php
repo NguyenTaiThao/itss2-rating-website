@@ -77,7 +77,9 @@ Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
 
         Route::get('post-management', [PostController::class, 'index'])->name('post');
         Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+        Route::post('post/create', [PostController::class, '_create'])->name('post._create');
         Route::get('post/edit/{id}', [PostController::class, 'edit'])->name('post.edit');
+        Route::post('post/edit/{id}', [PostController::class, 'edit'])->name('post._edit');
 
         Route::get('review-management', [ReviewController::class, 'index'])->name('review');
         Route::get('spam-review-management', [ReviewController::class, 'spam'])->name('review.spam');

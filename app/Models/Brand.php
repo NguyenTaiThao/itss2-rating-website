@@ -14,4 +14,9 @@ class Brand extends Authenticatable
     protected $table = "brands";
 
     protected $guard = 'brand';
+
+    public function posts()
+    {
+        return $this->HasMany(Post::class, 'user_id', 'id');
+    }
 }
