@@ -27,13 +27,20 @@
                         </a>
                         <div class="card-body position-relative">
                             <h5 class="card-title">{{$post->title}}</h5>
+
                             <p class="card-text">{{substr($post->content, 0, 100)}}...</p>
                             <div class="w-100 d-flex align-items-center position-absolute" style="bottom:10px">
                                 <div class="btn-group">
                                     <a href="{{route('post.show',['post'=>$post->id])}}" class="btn btn-sm btn-outline-secondary">View</a>
                                     <a href="{{route('post.review', ['post'=>$post->id])}}" class="btn btn-sm btn-outline-secondary">Review product</a>
                                 </div>
-                                <small class="text-muted d-inline-block ml-5">{{date('Y年m月d日',strtotime($post->created_at))}}</small>
+                                <div class=" d-inline-block ml-5">
+                                    @if($post->rating_point > 0)
+                                    <input type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" value={{$post->rating_point}} readonly="true">
+                                    @else
+                                    <span class="text-light">Not Rated</span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>

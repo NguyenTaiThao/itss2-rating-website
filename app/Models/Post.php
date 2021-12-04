@@ -12,7 +12,7 @@ class Post extends Model
 
     protected $fillable = ['user_id', 'title', 'content', 'img_url', 'product_category_id'];
 
-    protected $appends = ['rating_point'];
+    protected $appends = ['rating_point', 'rating_time'];
 
     public function getRatingPointAttribute()
     {
@@ -23,6 +23,14 @@ class Post extends Model
         }
         $point = $reviews->sum('rating') / $count;
         return $point;
+    }
+
+    public function getRatingTimeAttribute()
+    {
+        $reviews = $this->reviews;
+        $count = $reviews->count();
+       
+        return $count;
     }
 
     public function productCategory()
