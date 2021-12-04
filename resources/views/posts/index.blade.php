@@ -40,11 +40,13 @@
                                 <tr>
                                     <td>{{$post->title}}</td>
                                     <td>
-                                        {{$post->content}}
+                                        <div style="width:300px;overflow-wrap:break-word;white-space: normal;">
+                                            {{$post->content}}
+                                        </div>
                                     </td>
                                     <td> {{$post->created_at}}</td>
                                     <td>
-                                        <img src="https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_880/fb7eda3c-5ac8-4d05-a18f-1c2c5e82e36e/blazer-mid-77-vintage-shoe-dNWPTj.png" class="w-100" alt="">
+                                        <img src="{{asset('storage/'.$post->img_url)}}" alt="post-image" style="width:200px;">
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown">
@@ -52,8 +54,8 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Edit</a>
-                                                <a class="dropdown-item" href="">Delete</a>
+                                                <a class="dropdown-item" href="{{route('brand.post.edit',[$post->id])}}">Edit</a>
+                                                <a class="dropdown-item" href="{{route('brand.post.delete',[$post->id])}}">Delete</a>
                                             </div>
                                         </div>
                                     </td>
