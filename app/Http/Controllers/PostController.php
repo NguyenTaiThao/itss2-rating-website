@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\ReviewRequest;
 use App\Models\Post;
 use App\Models\ProductCategory;
+use App\Models\Review;
 use Carbon\Carbon;
 use Error;
 use Illuminate\Http\Request;
@@ -22,7 +24,8 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show');
+        $reviews = $post->reviews()->with('user')->orderBy('id', 'desc')->paginate(10);
+        return view('posts.show', ['post' => $post, 'reviews' => $reviews]);
     }
 
     public function create(Request $request)
@@ -69,8 +72,23 @@ class PostController extends Controller
         }
     }
 
-    public function review(Request $request, Post $post)
+    public function review(Post $post)
     {
-        return view('posts.review', ['date' => $post]);
+        return view('posts.review', ['post' => $post]);
+    }
+
+    public function _review(ReviewRequest $request, $post)
+    {
+        $data = $request->only((new Review())->getFillable());
+        $data['user_id'] = $request->user()->id;
+        $data['post_id'] = $post;
+        $data['created_at'] = Carbon::now();
+
+        try {
+            Review::insert($data);
+            return Redirect::route('post.show', ['post' => $post])->with('success', 'Reviewed successfully!');
+        } catch (\Exception $error) {
+            return Redirect::back()->with('error', 'Error during the deletion!');
+        }
     }
 }

@@ -22,7 +22,7 @@
                 @foreach($posts as $post)
                 <div class="col-md-4 mb-4">
                     <div class="card mb-4 box-shadow h-100">
-                        <a href="{{route('post.show',['id'=>$post->id])}}">
+                        <a href="{{route('post.show',['post'=>$post->id])}}">
                             <img class="card-img-top" src="storage/{{$post->img_url}}" alt="post logo" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
                         </a>
                         <div class="card-body position-relative">
@@ -30,8 +30,8 @@
                             <p class="card-text">{{substr($post->content, 0, 100)}}...</p>
                             <div class="w-100 d-flex align-items-center position-absolute" style="bottom:10px">
                                 <div class="btn-group">
-                                    <a href="{{route('post.show',['id'=>$post->id])}}" class="btn btn-sm btn-outline-secondary">View</a>
-                                    <a href="{{route('post.review', ['id'=>$post->id])}}" class="btn btn-sm btn-outline-secondary">Review product</a>
+                                    <a href="{{route('post.show',['post'=>$post->id])}}" class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a href="{{route('post.review', ['post'=>$post->id])}}" class="btn btn-sm btn-outline-secondary">Review product</a>
                                 </div>
                                 <small class="text-muted d-inline-block ml-5">{{date('Y年m月d日',strtotime($post->created_at))}}</small>
                             </div>

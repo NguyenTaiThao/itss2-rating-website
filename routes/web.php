@@ -28,9 +28,10 @@ Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/posts/{id}', [PostController::class, 'show'])->name('post.show');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
 Route::group(['middleware' => 'auth:user'], function () {
-    Route::get('/posts/review/{id}', [PostController::class, 'review'])->name('post.review');
+    Route::get('/posts/review/{post}', [PostController::class, 'review'])->name('post.review');
+    Route::post('/posts/review/{post}', [PostController::class, '_review'])->name('post._review');
 });
 
 Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
