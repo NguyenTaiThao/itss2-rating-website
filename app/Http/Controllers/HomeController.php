@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -9,15 +10,11 @@ class HomeController extends Controller
 {
     public function welcome()
     {
-        if (auth('user')->check()) {
-            return Redirect('/home');
-        }
 
         if (auth('brand')->check()) {
             return Redirect('brand/home');
         }
-
-        return view('home.index');
+        return Redirect('/home');
     }
 
     public function index()
@@ -25,6 +22,7 @@ class HomeController extends Controller
         if (auth('brand')->check()) {
             return Redirect('brand/home');
         }
-        return view('home.index');
+        $posts = Post::orderBy('id', 'desc')->paginate(12);
+        return view('home.index', ['posts' => $posts]);
     }
 }
