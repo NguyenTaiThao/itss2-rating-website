@@ -37,7 +37,7 @@
                         <h5 class="card-header bg-lighter py-2">{{$review->user->name}}</h5>
                         <div class="card-body  py-2">
                             <input type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" value={{$review->rating}} readonly="true">
-                            <p class="card-text">{{$review->rating}}</p>
+                            <p class="card-text">{{$review->content}}</p>
                         </div>
                     </div>
                 </div>
