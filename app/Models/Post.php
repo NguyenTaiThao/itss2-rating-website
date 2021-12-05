@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -16,7 +17,7 @@ class Post extends Model
 
     public function getRatingPointAttribute()
     {
-        $reviews = $this->reviews;
+        $reviews = $this->reviews()->where('is_spam', false)->get();
         $count = $reviews->count();
         if ($count == 0) {
             return 0;
@@ -27,9 +28,9 @@ class Post extends Model
 
     public function getRatingTimeAttribute()
     {
-        $reviews = $this->reviews;
+        $reviews = Review::where("post_id", $this->id)->get();
         $count = $reviews->count();
-       
+
         return $count;
     }
 
@@ -40,6 +41,13 @@ class Post extends Model
 
     public function reviews()
     {
-        return $this->hasMany(Review::class, 'post_id', 'id');
+        $isAuth = Auth::check();
+        if ($isAuth) {
+            $userId = Auth::user()->id;
+            return $this->hasMany(Review::class, 'post_id', 'id')->where('is_spam', false)->orWhere(function ($query) use ($userId) {
+                $query->where(['is_spam' => true, 'user_id' => $userId]);
+            });
+        }
+        return $this->hasMany(Review::class, 'post_id', 'id')->where('is_spam', false);
     }
 }
