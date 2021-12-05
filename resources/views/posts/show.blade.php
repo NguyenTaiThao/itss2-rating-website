@@ -15,9 +15,9 @@
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <h1>{{$post->title}}</h1>
                     <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}} readonly="true">
-                    <small class="text-muted d-inline-block">{{$post->rating_time}} rating times</small>
+                    <small class="text-muted d-inline-block">{{$post->rating_time}} 評価回数</small>
                     <div>
-                        <a href="{{route('post.review', ['post'=>$post->id])}}" class="btn btn-info mt-4">Write Review</a>
+                        <a href="{{route('post.review', ['post'=>$post->id])}}" class="btn btn-info mt-4">レビューを作成する</a>
                     </div>
                 </div>
                 <div class="col-12 mt-4">

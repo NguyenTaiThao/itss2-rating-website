@@ -13,10 +13,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">Update Post</h3>
+                                <h3 class="mb-0">ポストの更新</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('brand.post')}}" class="btn btn-sm btn-primary">Back to List</a>
+                                <a href="{{route('brand.post')}}" class="btn btn-sm btn-primary">前のページに戻る</a>
                             </div>
                         </div>
                     </div>
@@ -31,23 +31,23 @@
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="form-group">
-                                            <label for="title">Title</label>
-                                            <input value="{{old('title', $post->title)}}" type="text" class="form-control" name="title" id="title" aria-describedby="titleHelper" placeholder="Enter title">
+                                            <label for="title">タイトル</label>
+                                            <input value="{{old('title', $post->title)}}" type="text" class="form-control" name="title" id="title" aria-describedby="titleHelper" placeholder="タイトルを書いてください">
                                             @if($errors->has('title'))
                                             <div class="text-danger">{{ $errors->first('title') }}</div>
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label for="content">Content</label>
+                                            <label for="content">内容</label>
                                             <textarea name="content" id="content" class="form-control" cols="30" rows="10">{{old('content', $post->content)}}</textarea>
                                             @if($errors->has('content'))
                                             <div class="text-danger">{{ $errors->first('content') }}</div>
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label for="product_category_id">Product type</label>
+                                            <label for="product_category_id">製品のカテゴリ</label>
                                             <select value="{{old('product_category_id', $post->product_category_id)}}" id="product_category_id" name="product_category_id" class="form-control">
-                                                <option selected disabled>Choose product's category</option>
+                                                <option selected disabled>製品のカテゴリを選択してください</option>
                                                 @foreach($productTypes as $productType)
                                                 <option value="{{$productType->id}}" {{old("product_category_id", $post->product_category_id) == $productType->id ? "selected" : ""}}>{{$productType->name}}</option>
                                                 @endforeach
@@ -59,10 +59,10 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="content">Image</label>
+                                            <label for="content">画像</label>
                                             <div class="file-drop-area">
-                                                <span class="choose-file-button">Choose Files</span>
-                                                <span class="file-message">Select or drag and drop files here</span>
+                                                <span class="choose-file-button">画像を選択してください</span>
+                                                <span class="file-message">ここでファイルを選択またはドラッグアンドドロップして下さい</span>
                                                 <input type="file" name="image" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif">
                                             </div>
                                             @if($errors->has('image'))
@@ -76,8 +76,8 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button type="reset" class="btn btn-ouline-danger">Cancel</button>
-                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="reset" class="btn btn-ouline-danger">キャンセル</button>
+                                <button type="submit" class="btn btn-success">保存</button>
                             </div>
                         </form>
                     </div>

@@ -16,7 +16,7 @@
                                 <h3 class="mb-0">Spam Reviews</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('brand.review')}}" class="btn btn-sm btn-primary">Recent reviews</a>
+                                <a href="{{route('brand.review')}}" class="btn btn-sm btn-primary">最近レビューの一覧</a>
                             </div>
                         </div>
                     </div>
@@ -28,12 +28,12 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Post</th>
-                                    <th scope="col">Review point</th>
-                                    <th scope="col">Review content</th>
-                                    <th scope="col">Reviewer</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">デート</th>
+                                    <th scope="col">ポスの内容ト</th>
+                                    <th scope="col">評価点数</th>
+                                    <th scope="col">レビューの内容</th>
+                                    <th scope="col">レビューア</th>
+                                    <th scope="col">ステータス</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -41,7 +41,7 @@
                                 @if(count($reviews) == 0)
                                 <tr>
                                     <td colspan="6" class=" w-100">
-                                        <p class="alert alert-lighter text-center text-bold">There is no spam review</p>
+                                        <p class="alert alert-lighter text-center text-bold">スパムレビューがありません。</p>
                                     </td>
                                 </tr>
                                 @endif
@@ -66,8 +66,8 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a onclick="return confirmDelete('選択したレビューのスパムを削除しますか？')" class="dropdown-item" href="{{route('brand.review.markAsUnspam',['review'=>$review->id])}}">Mark as unspam</a>
-                                                <a onclick="return confirmDelete('選択したレビューを削除しますか？')" class="dropdown-item" href="{{route('brand.review.delete',['review'=>$review->id])}}">Delete</a>
+                                                <a onclick="return confirmDelete('選択したレビューのスパムを削除しますか？')" class="dropdown-item" href="{{route('brand.review.markAsUnspam',['review'=>$review->id])}}">スパム解除する</a>
+                                                <a onclick="return confirmDelete('選択したレビューを削除しますか？')" class="dropdown-item" href="{{route('brand.review.delete',['review'=>$review->id])}}">削除</a>
                                             </div>
                                         </div>
                                     </td>

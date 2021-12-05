@@ -26,7 +26,7 @@
             <form method="post" class="row mt-5 pt-5">
                 @csrf
                 <div class="col-md-12">
-                    <h3>Tell people what do you think about this post?</h3>
+                    <h3>この投稿についてどう思いますか？</h3>
                 </div>
 
                 <div class="col-md-12">
@@ -36,8 +36,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center mt-3">
-                    <button type="reset" class="btn btn-md btn-secondary">Reset</button>
-                    <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-md btn-secondary">リセット</button>
+                    <button type="submit" class="btn btn-md btn-primary">送信</button>
                 </div>
             </form>
         </div>

@@ -16,7 +16,7 @@
                                 <h3 class="mb-0">Posts</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('brand.post.create')}}" class="btn btn-sm btn-primary">Add post</a>
+                                <a href="{{route('brand.post.create')}}" class="btn btn-sm btn-primary">ポストを作成する</a>
                             </div>
                         </div>
                     </div>
@@ -28,10 +28,10 @@
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Content</th>
-                                    <th scope="col">Creation Date</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">タイトル</th>
+                                    <th scope="col">内容</th>
+                                    <th scope="col">作成日</th>
+                                    <th scope="col">画像</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -39,7 +39,7 @@
                                 @if(count($posts) == 0)
                                 <tr>
                                     <td colspan="5" class=" w-100">
-                                        <p class="alert alert-lighter text-center text-bold">There is no post</p>
+                                        <p class="alert alert-lighter text-center text-bold">ポストがありません。</p>
                                     </td>
                                 </tr>
                                 @endif
@@ -61,8 +61,8 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{route('brand.post.edit',[$post->id])}}">Edit</a>
-                                                <a class="dropdown-item" onclick="return confirmDelete('選択したポストを削除しますか？');" href="{{route('brand.post.delete',[$post->id])}}">Delete</a>
+                                                <a class="dropdown-item" href="{{route('brand.post.edit',[$post->id])}}">更新</a>
+                                                <a class="dropdown-item" onclick="return confirmDelete('選択したポストを削除しますか？');" href="{{route('brand.post.delete',[$post->id])}}">削除</a>
                                             </div>
                                         </div>
                                     </td>
