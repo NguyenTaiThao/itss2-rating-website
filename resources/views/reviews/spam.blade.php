@@ -38,6 +38,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if(count($reviews) == 0)
+                                <tr>
+                                    <td colspan="6" class=" w-100">
+                                        <p class="alert alert-lighter text-center text-bold">There is no spam review</p>
+                                    </td>
+                                </tr>
+                                @endif
                                 @foreach($reviews as $review)
                                 <tr>
                                     <td>{{$review->created_at}}</td>
@@ -71,21 +78,7 @@
                     </div>
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-center" aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            {{ $reviews->links("pagination::bootstrap-4") }}
                         </nav>
                     </div>
                 </div>

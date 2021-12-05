@@ -38,6 +38,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if(count($reviews) == 0)
+                                <tr>
+                                    <td colspan="6" class=" w-100">
+                                        <p class="alert alert-lighter text-center text-bold">There is no review</p>
+                                    </td>
+                                </tr>
+                                @endif
                                 @foreach($reviews as $review)
                                 <tr>
                                     <td>{{$review->created_at}}</td>

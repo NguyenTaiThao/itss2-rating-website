@@ -36,6 +36,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if(count($posts) == 0)
+                                <tr>
+                                    <td colspan="5" class=" w-100">
+                                        <p class="alert alert-lighter text-center text-bold">There is no post</p>
+                                    </td>
+                                </tr>
+                                @endif
                                 @foreach($posts as $post)
                                 <tr>
                                     <td>{{$post->title}}</td>
