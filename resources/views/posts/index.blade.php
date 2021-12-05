@@ -62,7 +62,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="{{route('brand.post.edit',[$post->id])}}">Edit</a>
-                                                <a class="dropdown-item" href="{{route('brand.post.delete',[$post->id])}}">Delete</a>
+                                                <a class="dropdown-item" onclick="return confirmDelete('選択したポストを削除しますか？');" href="{{route('brand.post.delete',[$post->id])}}">Delete</a>
                                             </div>
                                         </div>
                                     </td>

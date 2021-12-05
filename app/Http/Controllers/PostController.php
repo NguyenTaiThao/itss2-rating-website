@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Http\Requests\ReviewRequest;
 use App\Models\Post;
 use App\Models\ProductCategory;
@@ -28,7 +29,7 @@ class PostController extends Controller
         return view('posts.show', ['post' => $post, 'reviews' => $reviews]);
     }
 
-    public function create(Request $request)
+    public function create()
     {
         $productTypes = ProductCategory::all();
         return view('posts.create', ['productTypes' => $productTypes]);
@@ -57,9 +58,25 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post, 'productTypes' => $productTypes]);
     }
 
-    public function _edit(PostRequest $request, Post $post)
+    public function _edit(PostUpdateRequest $request, Post $post)
     {
-        return Redirect::route('brand.post')->with('success', 'Updated successfully!');
+        $data = $request->only((new Post())->getFillable());
+        $path = $post->img_url;
+
+        try {
+            if ($request->hasFile('image')) {
+                $path =  $request->file('image')->store('post-images', 'public');
+            }
+
+            $data['img_url'] = $path;
+            $data['created_at'] = Carbon::now();
+
+            Post::whereId($post->id)->update($data);
+
+            return Redirect::back()->with('success', 'Updated successfully!');
+        } catch (\Exception $error) {
+            return Redirect::back()->with('error', 'Error during updation!');
+        }
     }
 
     public function _delete(Post $post)

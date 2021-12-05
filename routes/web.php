@@ -85,6 +85,9 @@ Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
 
         Route::get('review-management', [ReviewController::class, 'index'])->name('review');
         Route::get('spam-review-management', [ReviewController::class, 'spam'])->name('review.spam');
+        Route::get('review/mark-as-spam/{review}', [ReviewController::class, 'markAsSpam'])->name('review.markAsSpam');
+        Route::get('review/mark-as-unspam/{review}', [ReviewController::class, 'markAsUnspam'])->name('review.markAsUnspam');
+        Route::get('review/delete/{review}', [ReviewController::class, 'delete'])->name('review.delete');
 
         Route::get('table-list', function () {
             return view('pages.tables');

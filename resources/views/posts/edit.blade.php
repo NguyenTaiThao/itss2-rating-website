@@ -63,13 +63,15 @@
                                             <div class="file-drop-area">
                                                 <span class="choose-file-button">Choose Files</span>
                                                 <span class="file-message">Select or drag and drop files here</span>
-                                                <input type="file" name="image" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif" value="{{old('image')}}">
+                                                <input type="file" name="image" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif">
                                             </div>
                                             @if($errors->has('image'))
                                             <div class="text-danger">{{ $errors->first('image') }}</div>
                                             @endif
                                         </div>
-                                        <div id="divImageMediaPreview"> </div>
+                                        <div id="divImageMediaPreview">
+                                            <img src="{{asset('storage/'.$post->img_url)}}" alt="post_image" style="width:100%;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -32,7 +32,18 @@ class ReviewController extends Controller
             return Redirect::back()->with('error', 'Error during the marking as spam!');
         }
     }
-    
+
+    public function markAsUnspam(Review $review)
+    {
+        try {
+            $review->is_spam = false;
+            $review->save();
+            return Redirect::back()->with('success', 'Marker as unspam successfully!');
+        } catch (\Exception $error) {
+            return Redirect::back()->with('error', 'Error during the marking as unspam!');
+        }
+    }
+
     public function delete(Review $review)
     {
         try {

@@ -66,8 +66,8 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Mark as unspam</a>
-                                                <a class="dropdown-item" href="">Delete</a>
+                                                <a onclick="return confirmDelete('選択したレビューのスパムを削除しますか？')" class="dropdown-item" href="{{route('brand.review.markAsUnspam',['review'=>$review->id])}}">Mark as unspam</a>
+                                                <a onclick="return confirmDelete('選択したレビューを削除しますか？')" class="dropdown-item" href="{{route('brand.review.delete',['review'=>$review->id])}}">Delete</a>
                                             </div>
                                         </div>
                                     </td>
