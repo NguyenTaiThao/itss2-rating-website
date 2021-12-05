@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Brand;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -27,5 +28,7 @@ class BrandSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ]);
+
+        Brand::factory()->count(100)->create();
     }
 }
