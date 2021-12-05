@@ -80,47 +80,26 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('brand.dashboard') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('ダッシュボード') }}
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-user-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-user-management">
-                        <i class="far fa-user" style="color: #f4645f;"></i>
-                        <span class="nav-link-text">{{ __('User management') }}</span>
-                    </a>
-
-                    <div class="collapse show" id="navbar-user-management">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('brand.profile.edit') }}">
-                                    {{ __('User profile') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('brand.user.index') }}">
-                                    {{ __('User Management') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> -->
 
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-post-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-post-management">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text">{{ __('Post Management') }}</span>
+                        <span class="nav-link-text">{{ __('ポスト管理') }}</span>
                     </a>
 
                     <div class="collapse show" id="navbar-post-management">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('brand.post') }}">
-                                    {{ __('Your Posts') }}
+                                    {{ __('ポスト一覧') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('brand.post.create') }}">
-                                    {{ __('Write Post') }}
+                                    {{ __('ポスト作成') }}
                                 </a>
                             </li>
                         </ul>
@@ -130,19 +109,19 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-review-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-review-management">
                         <i class="far fa-star" style="color: #ffd600 ;"></i>
-                        <span class="nav-link-text">{{ __('Review Management') }}</span>
+                        <span class="nav-link-text">{{ __('レビュー管理') }}</span>
                     </a>
 
                     <div class="collapse show" id="navbar-review-management">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('brand.review') }}">
-                                    {{ __('Recent Reviews') }}
+                                    {{ __('最近レビューの一覧') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('brand.review.spam') }}">
-                                    {{ __('Spam Reviews') }}
+                                    {{ __('スパムレビューの一覧') }}
                                 </a>
                             </li>
                         </ul>

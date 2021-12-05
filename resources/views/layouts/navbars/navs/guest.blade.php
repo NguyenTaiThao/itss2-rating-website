@@ -28,19 +28,19 @@
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('brand.login') }}">
                         <i class="ni ni-planet"></i>
-                        <span class="nav-link-inner--text">{{ __('Boost your brand up') }}</span>
+                        <span class="nav-link-inner--text">{{ __('ブランドを後押しします') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('register') }}">
                         <i class="ni ni-circle-08"></i>
-                        <span class="nav-link-inner--text">{{ __('Register') }}</span>
+                        <span class="nav-link-inner--text">{{ __('新規登録') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="{{ route('login') }}">
                         <i class="ni ni-key-25"></i>
-                        <span class="nav-link-inner--text">{{ __('Login') }}</span>
+                        <span class="nav-link-inner--text">{{ __('ログイン') }}</span>
                     </a>
                 </li>
             </ul>
