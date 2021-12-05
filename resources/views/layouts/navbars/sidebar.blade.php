@@ -83,7 +83,7 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-user-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-user-management">
                         <i class="far fa-user" style="color: #f4645f;"></i>
                         <span class="nav-link-text">{{ __('User management') }}</span>
@@ -103,7 +103,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
                     <a class="nav-link active" href="#navbar-post-management" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-post-management">

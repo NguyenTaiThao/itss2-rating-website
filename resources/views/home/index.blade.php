@@ -19,6 +19,11 @@
     <div class="album py-5 bg-white">
         <div class="container">
             <div class="row">
+                @if(count($posts) == 0)
+                <div class="alert alert-lighter d-flex justify-content-center w-100">
+                    <p>There is no post</p>
+                </div>
+                @endif
                 @foreach($posts as $post)
                 <div class="col-md-4 mb-4">
                     <div class="card mb-4 box-shadow h-100">
