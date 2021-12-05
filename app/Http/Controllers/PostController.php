@@ -68,6 +68,7 @@ class PostController extends Controller
             $post->delete();
             return Redirect::route('brand.post')->with('success', 'Deleted successfully!');
         } catch (\Exception $error) {
+            dd($error);
             return Redirect::back()->with('error', 'Error during the deletion!');
         }
     }

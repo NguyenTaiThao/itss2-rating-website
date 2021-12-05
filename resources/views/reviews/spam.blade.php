@@ -16,7 +16,7 @@
                                 <h3 class="mb-0">Spam Reviews</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('brand.review.spam')}}" class="btn btn-sm btn-primary">Allowing reviews</a>
+                                <a href="{{route('brand.review')}}" class="btn btn-sm btn-primary">Recent reviews</a>
                             </div>
                         </div>
                     </div>
@@ -38,17 +38,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($reviews as $review)
                                 <tr>
-                                    <td>12/02/2020 11:00</td>
-                                    <td>Nike 1001</td>
+                                    <td>{{$review->created_at}}</td>
+                                    <td>{{$review->post->title}}</td>
                                     <td>
-                                        0.5
+                                        {{$review->rating}}
                                         <i class="fas fa-star text-yellow"></i>
                                     </td>
                                     <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        {{$review->content}}
                                     </td>
-                                    <td>Lorem</td>
+                                    <td>{{$review->user->name}}</td>
                                     <td>
                                         <span class="badge bg-danger text-white">spam</span>
                                     </td>
@@ -64,33 +65,7 @@
                                         </div>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>12/02/2020 11:00</td>
-                                    <td>Nike 2001</td>
-                                    <td>
-                                        1.5
-                                        <i class="fas fa-star text-yellow"></i>
-                                    </td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </td>
-                                    <td>Lorem</td>
-                                    <td>
-                                        <span class="badge bg-danger text-white">spam</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Mark as unspam</a>
-                                                <a class="dropdown-item" href="">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

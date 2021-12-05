@@ -38,17 +38,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($reviews as $review)
                                 <tr>
-                                    <td>12/02/2020 11:00</td>
-                                    <td>Nike 1001</td>
+                                    <td>{{$review->created_at}}</td>
+                                    <td>{{$review->post->title}}</td>
                                     <td>
-                                        4.5
+                                        {{$review->rating}}
                                         <i class="fas fa-star text-yellow"></i>
                                     </td>
                                     <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        {{$review->content}}
                                     </td>
-                                    <td>Lorem</td>
+                                    <td>{{$review->user->name}}</td>
                                     <td>
                                         <span class="badge bg-success text-white">ok</span>
                                     </td>
@@ -63,52 +64,14 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
 
-                                <tr>
-                                    <td>12/02/2020 11:00</td>
-                                    <td>Nike 2001</td>
-                                    <td>
-                                        4.5
-                                        <i class="fas fa-star text-yellow"></i>
-                                    </td>
-                                    <td>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    </td>
-                                    <td>Lorem</td>
-                                    <td>
-                                        <span class="badge bg-success text-white">ok</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="">Mark as spam</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-center" aria-label="...">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            {{ $reviews->links("pagination::bootstrap-4") }}
                         </nav>
                     </div>
                 </div>

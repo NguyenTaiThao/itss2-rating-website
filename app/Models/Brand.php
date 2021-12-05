@@ -19,4 +19,14 @@ class Brand extends Authenticatable
     {
         return $this->HasMany(Post::class, 'user_id', 'id');
     }
+
+    public function activeReviews()
+    {
+        return $this->hasManyThrough(Review::class, Post::class, 'user_id', 'post_id', 'id', 'id')->where('is_spam', false);
+    }
+
+    public function spamReviews()
+    {
+        return $this->hasManyThrough(Review::class, Post::class, 'user_id', 'post_id', 'id', 'id')->where('is_spam', true);
+    }
 }
