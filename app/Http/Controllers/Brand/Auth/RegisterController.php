@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Brand\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\CompanyType;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -53,7 +57,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed'],
+            'company_category_id' => ['required', 'exists:company_categories,id'],
         ]);
     }
 
@@ -65,11 +70,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $brand =  Brand::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'company_category_id' => $data['company_category_id'],
+            'created_at' => Carbon::now(),
         ]);
+        Alert::success('成功', '新規登録が成功しました。管理者の確認をお待ちください。');
+        return $brand;
     }
 
     protected function guard()
@@ -78,6 +87,7 @@ class RegisterController extends Controller
     }
     public function showRegistrationForm()
     {
-        return view('auth.brand.register');
+        $companyTypes = CompanyType::all();
+        return view('auth.brand.register', ['companyTypes' => $companyTypes]);
     }
 }

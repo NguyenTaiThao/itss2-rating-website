@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
+Route::get('/upgrade', function(){
+    return view('upgrade.index');
+})->name('upgrade');
 
 Auth::routes();
 
@@ -67,7 +70,7 @@ Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
         BrandRegisterController::class, 'register'
     ]);
 
-    Route::group(['middleware' => 'auth:brand'], function () {
+    Route::group(['middleware' => ['auth:brand', 'brand']], function () {
         Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::resource('user', UserController::class, ['except' => ['show']]);

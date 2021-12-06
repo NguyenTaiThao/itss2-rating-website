@@ -16,17 +16,39 @@ class CompanyCategorySeeder extends Seeder
     {
         DB::table('company_categories')->insert([
             [
-                'name' => 'Shoes',
+                'name' => '靴',
             ],
             [
-                'name' => 'Food & Drink',
+                'name' => '食べ物と飲み物',
             ],
             [
-                'name' => 'Clothings',
+                'name' => '衣服',
             ],
             [
-                'name' => 'Glasses',
+                'name' => '車',
             ],
+            [
+                'name' => '自転車',
+            ],
+            [
+                'name' => '電子家具',
+            ],
+            [
+                'name' => '電子デバイス',
+            ],
+            [
+                'name' => '旅行',
+            ],
+            [
+                'name' => '教育',
+            ],
+            [
+                'name' => '不動産',
+            ],
+            [
+                'name' => 'エンターテイメント',
+            ],
+
         ]);
     }
 }

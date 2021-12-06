@@ -23,8 +23,7 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($this->GUARD_BRAND)->check()) {
             return redirect(RouteServiceProvider::BRAND_HOME);
-        }
-        else if (Auth::guard($this->GUARD_USER)->check()) {
+        } else if (Auth::guard($this->GUARD_USER)->check()) {
             return redirect(RouteServiceProvider::HOME);
         }
 

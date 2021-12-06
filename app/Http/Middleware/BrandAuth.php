@@ -3,8 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 
 class BrandAuth
 {
@@ -19,9 +22,10 @@ class BrandAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard(self::GUARD_BRAND)->check()) {
+        if ($request->user('brand')->is_active) {
             return $next($request);
         }
-        return abort(401);
+        Auth::logout();
+        return View('upgrade.index');
     }
 }

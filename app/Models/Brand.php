@@ -15,6 +15,8 @@ class Brand extends Authenticatable
 
     protected $guard = 'brand';
 
+    protected $fillable = ['name','email','password','logo_path','company_category_id'];
+
     public function posts()
     {
         return $this->HasMany(Post::class, 'user_id', 'id');
