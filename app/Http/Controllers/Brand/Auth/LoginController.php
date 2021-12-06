@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Brand\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -47,5 +48,20 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.brand.login');
+    }
+
+    protected function getCredentials(Request $request)
+    {
+        return [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'is_active' => true
+        ];
+    }
+
+    protected function credentials(Request $request)
+    {
+        $c = $request->only($this->username(), 'password');
+        return array_merge($c, ['is_active' => true]);
     }
 }

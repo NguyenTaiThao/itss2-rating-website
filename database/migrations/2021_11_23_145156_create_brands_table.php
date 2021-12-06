@@ -22,6 +22,7 @@ class CreateBrandsTable extends Migration
             $table->unsignedBigInteger('company_category_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+            $table->boolean("is_active")->default(0);
             $table->timestamps();
 
             $table->foreign('company_category_id')->references('id')->on('company_categories');

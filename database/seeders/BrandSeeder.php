@@ -23,6 +23,7 @@ class BrandSeeder extends Seeder
                 'password' => Hash::make('secret'),
                 'logo_path' => 'https://www.iconspng.com/images/hello-kitty.jpg',
                 'company_category_id' => 1,
+                'is_active' => true,
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
