@@ -12,7 +12,7 @@
                     <div class="text-center text-muted mb-4">
                         <h2 class="text-light">{{ __('新規登録') }}</h2>
                     </div>
-                    <form role="form" method="POST" action="{{ route('brand.register') }}">
+                    <form role="form" method="POST" enctype="multipart/form-data" action="{{ route('brand.register') }}">
                         @csrf
 
                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -58,6 +58,21 @@
                             </span>
                             @endif
                         </div>
+
+                        <div class="form-group{{ $errors->has('logo') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-images"></i></i></span>
+                                </div>
+                                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="file" name="logo" value="{{ old('logo') }}" required>
+                            </div>
+                            @if ($errors->has('logo'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('logo') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">

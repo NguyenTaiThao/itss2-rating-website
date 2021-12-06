@@ -45,7 +45,11 @@
                                 @endif
                                 @foreach($posts as $post)
                                 <tr>
-                                    <td>{{$post->title}}</td>
+                                    <td>
+                                        <div style="width:200px;overflow-wrap:break-word;white-space: normal;">
+                                            {{$post->title}}
+                                        </div>
+                                    </td>
                                     <td>
                                         <div style="width:300px;overflow-wrap:break-word;white-space: normal;">
                                             {{$post->content}}

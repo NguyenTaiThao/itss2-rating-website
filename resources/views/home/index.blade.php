@@ -18,6 +18,38 @@
     </div>
     <div class="album py-5 bg-white">
         <div class="container">
+            <form method="get">
+                <div class="row mb-3 bg-light align-items-center" style="height: 90px;">
+                    <div class="col-md-4">
+                        <div class="form-group mb-0">
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" placeholder="探索" type="text" name="keyword" value="{{request()->get('keyword')}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="">
+                            <select value="{{request()->get('product_category_id')}}" id="product_category_id" name="product_category_id" class="form-control">
+                                <option selected disabled>製品のカテゴリを選択してください</option>
+                                @foreach($productTypes as $productType)
+                                <option value="{{$productType->id}}" {{request()->get('product_category_id') == $productType->id ? "selected" : ""}}>{{$productType->name}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('product_category_id'))
+                            <div class="text-danger">{{ $errors->first('product_category_id') }}</div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-success text-white">
+                            <i class="fas fa-search"></i>フィルターする
+                        </button>
+                    </div>
+                </div>
+            </form>
             <div class="row">
                 @if(count($posts) == 0)
                 <div class="alert alert-lighter d-flex justify-content-center w-100">

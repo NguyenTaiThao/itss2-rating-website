@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'confirmed'],
             'company_category_id' => ['required', 'exists:company_categories,id'],
+            'logo' => ['required', 'image']
         ]);
     }
 
@@ -70,11 +71,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $path = $data['logo']->store('logos', 'public');
         $brand =  Brand::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'company_category_id' => $data['company_category_id'],
+            'logo_path' => $path,
             'created_at' => Carbon::now(),
         ]);
         Alert::success('成功', '新規登録が成功しました。管理者の確認をお待ちください。');

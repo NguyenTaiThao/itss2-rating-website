@@ -26,6 +26,6 @@ class BrandAuth
             return $next($request);
         }
         Auth::logout();
-        return View('upgrade.index');
+        return Redirect::route('upgrade');
     }
 }
