@@ -27,9 +27,9 @@ class ReviewController extends Controller
         try {
             $review->is_spam = true;
             $review->save();
-            return Redirect::back()->with('success', 'Marker as spam successfully!');
+            return Redirect::back()->with('成功', 'スパムとすることが成功しました!');
         } catch (\Exception $error) {
-            return Redirect::back()->with('error', 'Error during the marking as spam!');
+            return Redirect::back()->with('エラー', 'スパムとすることはエラーになりました!');
         }
     }
 
@@ -38,9 +38,9 @@ class ReviewController extends Controller
         try {
             $review->is_spam = false;
             $review->save();
-            return Redirect::back()->with('success', 'Marker as unspam successfully!');
+            return Redirect::back()->with('成功', 'スパム削除が成功しました!');
         } catch (\Exception $error) {
-            return Redirect::back()->with('error', 'Error during the marking as unspam!');
+            return Redirect::back()->with('エラー', 'スパム削除はエラーになりました!');
         }
     }
 
@@ -48,9 +48,9 @@ class ReviewController extends Controller
     {
         try {
             $review->delete();
-            return Redirect::back()->with('success', 'Deleted successfully!');
+            return Redirect::back()->with('成功', '削除が成功しました!');
         } catch (\Exception $error) {
-            return Redirect::back()->with('error', 'Error during the deletion!');
+            return Redirect::back()->with('エラー', '削除はエラーになりました!');
         }
     }
 }

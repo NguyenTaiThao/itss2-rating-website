@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = $request->user()->posts()->paginate(20);
-        return view('posts.index', ['posts' => $posts])->with('success', 'Created successfully!');
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function show(Post $post)
@@ -46,9 +46,9 @@ class PostController extends Controller
             $data['created_at'] = Carbon::now();
 
             Post::insert($data);
-            return Redirect::route('brand.post')->with('success', 'Created successfully!');
+            return Redirect::route('brand.post')->with('成功', '作成が成功しました!');
         } catch (\Exception  $error) {
-            return Redirect::back()->with('error', 'Error during the creation!');
+            return Redirect::back()->with('エラー', '作成はエラーになりました!');
         }
     }
 
@@ -73,9 +73,9 @@ class PostController extends Controller
 
             Post::whereId($post->id)->update($data);
 
-            return Redirect::back()->with('success', 'Updated successfully!');
+            return Redirect::back()->with('成功', '更新が成功しました!');
         } catch (\Exception $error) {
-            return Redirect::back()->with('error', 'Error during updation!');
+            return Redirect::back()->with('エラー', '更新はエラーになりました!');
         }
     }
 
@@ -83,10 +83,10 @@ class PostController extends Controller
     {
         try {
             $post->delete();
-            return Redirect::route('brand.post')->with('success', 'Deleted successfully!');
+            return Redirect::route('brand.post')->with('成功', '削除が成功しました!');
         } catch (\Exception $error) {
             dd($error);
-            return Redirect::back()->with('error', 'Error during the deletion!');
+            return Redirect::back()->with('エラー', '削除はエラーになりました!');
         }
     }
 
@@ -104,9 +104,9 @@ class PostController extends Controller
 
         try {
             Review::insert($data);
-            return Redirect::route('post.show', ['post' => $post])->with('success', 'Reviewed successfully!');
+            return Redirect::route('post.show', ['post' => $post])->with('成功', 'レビュー投稿が成功しました!');
         } catch (\Exception $error) {
-            return Redirect::back()->with('error', 'Error during the deletion!');
+            return Redirect::back()->with('エラー', 'レビュー投稿はエラーになりました!');
         }
     }
 }
