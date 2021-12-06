@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Brand;
 use App\Models\ProductCategory;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -19,7 +20,7 @@ class PostFactory extends Factory
     public function definition()
     {
         if (count(PostFactory::$userIds) < 1) {
-            PostFactory::$userIds = User::all()->pluck('id');
+            PostFactory::$userIds = Brand::all()->pluck('id');
         }
 
         if (count(PostFactory::$productCategoryIds) < 1) {

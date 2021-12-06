@@ -25,6 +25,11 @@
                         {{$post->content}}
                     </p>
                 </div>
+                <div class="col-12 mt-3 text-right">
+                    <span class="text-muted">
+                        {{$post->brand->name}}
+                    </span>
+                </div>
             </div>
 
             <div class="row mt-5 pt-5">

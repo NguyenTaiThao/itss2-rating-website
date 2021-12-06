@@ -33,7 +33,7 @@
                     <div class="col-md-4">
                         <div class="">
                             <select value="{{request()->get('product_category_id')}}" id="product_category_id" name="product_category_id" class="form-control">
-                                <option selected disabled>製品のカテゴリを選択してください</option>
+                                <option selected value="">製品のカテゴリを選択してください</option>
                                 @foreach($productTypes as $productType)
                                 <option value="{{$productType->id}}" {{request()->get('product_category_id') == $productType->id ? "selected" : ""}}>{{$productType->name}}</option>
                                 @endforeach
