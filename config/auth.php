@@ -47,7 +47,6 @@ return [
         'api' => [
             'driver' => 'session',
             'provider' => 'admin', // <--- Here
-            'hash' => false,
         ],
     ],
 

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\V1\AdminController;
+use App\Http\Controllers\V1\PostController;
 use App\Http\Controllers\V1\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\V1\BrandController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +24,12 @@ Route::prefix("v1")->group(function () {
             Route::get('logout', [AuthController::class, 'logout']);
             Route::get('me', [AuthController::class, 'me']);
         });
+    });
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::resource("posts", PostController::class)->only(["index", 'destroy']);
+        Route::resource("admins", AdminController::class)->only(["index", 'store', 'update']);
+        Route::resource("brands", BrandController::class)->only(["index", 'update']);
+        Route::post('brands/accept/{brand}', [BrandController::class, 'accept']);
+        Route::post('brands/reject/{brand}', [BrandController::class, 'reject']);
     });
 });
