@@ -16,19 +16,23 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        if ($request->is('api/*')) {
+            return response()->json(['error' => 'authentication failed'], 401);
+        }
+
         $previousURL = URL::previous();
         $route = app('router')->getRoutes($previousURL)->match(app('request')->create($previousURL))->getName();
         $firstNameSpace = explode('.', $route)[0];
 
-        if($firstNameSpace == 'brand'){
+        if ($firstNameSpace == 'brand') {
             return route('brand.login');
         }
 
-        if($firstNameSpace == 'admin'){
+        if ($firstNameSpace == 'admin') {
             return route('brand.login');
         }
 
-        if (! $request->expectsJson()) {
+        if (!$request->expectsJson()) {
             return route('login');
         }
     }

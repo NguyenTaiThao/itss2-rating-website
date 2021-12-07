@@ -44,7 +44,14 @@ return [
             'driver' => 'session',
             'provider' => 'brands',
         ],
+        'api' => [
+            'driver' => 'session',
+            'provider' => 'admin', // <--- Here
+            'hash' => false,
+        ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -72,6 +79,11 @@ return [
         'brands' => [
             'driver' => 'eloquent',
             'model' => App\Models\Brand::class,
+        ],
+
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
     ],
 
