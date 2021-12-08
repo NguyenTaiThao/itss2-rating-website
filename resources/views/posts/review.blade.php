@@ -10,11 +10,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="width: 100%; display: block;" src="{{asset('storage/'.$post->img_url)}}" data-holder-rendered="true">
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="width: 100%; display: block;"
+                        src="{{asset('storage/'.$post->img_url)}}" data-holder-rendered="true">
                 </div>
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <h1>{{$post->title}}</h1>
-                    <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}} readonly="true">
+                    <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}}
+                        readonly="true">
                 </div>
                 <div class="col-12 mt-4">
                     <p>
@@ -30,9 +32,16 @@
                 </div>
 
                 <div class="col-md-12">
-                    <input name="rating" type="number" class="rating" min=0 max=5 step=0.5 data-size="lg">
+                    <input name="rating" type="number" class="rating" min=0 max=5 step=0.5 data-size="lg"
+                        value="{{old('rating')}}">
+                    @if($errors->has('rating'))
+                    <div class="text-danger">{{ $errors->first('rating') }}</div>
+                    @endif
                     <div class="mt-2">
-                        <textarea rows=5 class="form-control w-100" name="content"></textarea>
+                        <textarea rows=5 class="form-control w-100" name="content">{{old('content')}}</textarea>
+                        @if($errors->has('content'))
+                        <div class="text-danger">{{ $errors->first('content') }}</div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-12 text-center mt-3">
