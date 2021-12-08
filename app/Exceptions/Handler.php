@@ -47,8 +47,12 @@ class Handler extends ExceptionHandler
      * @param  \Illuminate\Auth\AuthenticationException  $exception
      * @return \Illuminate\Http\Response
      */
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
-        return response()->json(['error' => 'unauthenticated'], 401);
-    }
+    // protected function unauthenticated($request, AuthenticationException $exception)
+    // {
+    //     // if ($request->is('api/*')) {
+    //     //     return response()->json(['error' => 'unauthenticated'], 401);
+    //     // } else {
+    //     //     next($request);
+    //     // }
+    // }
 }

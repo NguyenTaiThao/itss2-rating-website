@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use Illuminate\Routing\UrlGenerator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\URL;
 
 class Authenticate extends Middleware
@@ -17,7 +17,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if ($request->is('api/*')) {
-            return response()->json(['error' => 'authentication failed'], 401);
+            throw new HttpResponseException(response()->json(['failure_reason' => 'unauthenticated'], 403));
         }
 
         $previousURL = URL::previous();
