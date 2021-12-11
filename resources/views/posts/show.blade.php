@@ -10,11 +10,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="width: 100%; display: block;" src="{{asset('storage/'.$post->img_url)}}" data-holder-rendered="true">
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="width: 100%; display: block;"
+                        src="{{asset('storage/'.$post->img_url)}}" data-holder-rendered="true">
                 </div>
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <h1>{{$post->title}}</h1>
-                    <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}} readonly="true">
+                    <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}}
+                        readonly="true">
                     <small class="text-muted d-inline-block">{{$post->rating_time}} 評価回数</small>
                     <div>
                         <a href="{{route('post.review', ['post'=>$post->id])}}" class="btn btn-info mt-4">レビューを作成する</a>
@@ -34,15 +36,17 @@
 
             <div class="row mt-5 pt-5">
                 @if(count($reviews) == 0)
-                <a href="{{route('post.review', ['post'=>$post->id])}}" class="alert alert-light w-100 text-center text-white">レビューがまだありません。レビューを作成しましょう。</a>
+                <a href="{{route('post.review', ['post'=>$post->id])}}"
+                    class="alert alert-light w-100 text-center text-white">レビューがまだありません。レビューを作成しましょう。</a>
                 @endif
 
                 @foreach($reviews as $review)
                 <div class="col-12 mb-5">
-                    <div class="card">
+                    <div class="card shadow-lg">
                         <h5 class="card-header bg-lighter py-2">{{$review->user->name}}</h5>
                         <div class="card-body  py-2">
-                            <input type="number" class="rating" min=0 max=5 step=0.5 data-size="sm" value={{$review->rating}} readonly="true">
+                            <input type="number" class="rating" min=0 max=5 step=0.5 data-size="sm"
+                                value={{$review->rating}} readonly="true">
                             <p class="card-text">{{$review->content}}</p>
                         </div>
                     </div>

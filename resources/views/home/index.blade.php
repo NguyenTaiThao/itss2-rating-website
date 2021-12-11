@@ -29,7 +29,8 @@
                                 @foreach($productTypes as $productType)
                                 <option value="{{$productType->id}}"
                                     {{request()->get('product_category_id') == $productType->id ? "selected" : ""}}>
-                                    {{$productType->name}}</option>
+                                    {{$productType->name}}
+                                </option>
                                 @endforeach
                             </select>
                             @if($errors->has('product_category_id'))
@@ -52,7 +53,7 @@
                 @endif
                 @foreach($posts as $post)
                 <div class="col-md-4 mb-4">
-                    <div class="card mb-4 box-shadow h-100">
+                    <div class="card mb-4 box-shadow h-100 shadow-lg">
                         <a href="{{route('post.show',['post'=>$post->id])}}">
                             <img class="card-img-top" src="storage/{{$post->img_url}}" alt="post logo"
                                 style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
