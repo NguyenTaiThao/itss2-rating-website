@@ -48,13 +48,20 @@
                                 @foreach($reviews as $review)
                                 <tr>
                                     <td>{{$review->created_at}}</td>
-                                    <td>{{$review->post->title}}</td>
+
+                                    <td>
+                                        <div style="width:200px;overflow-wrap:break-word;white-space: normal;">
+                                            {{$review->post->title}}
+                                        </div>
+                                    </td>
                                     <td>
                                         {{$review->rating}}
                                         <i class="fas fa-star text-yellow"></i>
                                     </td>
                                     <td>
-                                        {{$review->content}}
+                                        <div style="width:270px;overflow-wrap:break-word;white-space: normal;">
+                                            {{$review->content}}
+                                        </div>
                                     </td>
                                     <td>{{$review->user->name}}</td>
                                     <td>
@@ -62,12 +69,17 @@
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a onclick="return confirmDelete('選択したレビューのスパムを削除しますか？')" class="dropdown-item" href="{{route('brand.review.markAsUnspam',['review'=>$review->id])}}">スパム解除する</a>
-                                                <a onclick="return confirmDelete('選択したレビューを削除しますか？')" class="dropdown-item" href="{{route('brand.review.delete',['review'=>$review->id])}}">削除</a>
+                                                <a onclick="return confirmDelete('選択したレビューのスパムを削除しますか？')"
+                                                    class="dropdown-item"
+                                                    href="{{route('brand.review.markAsUnspam',['review'=>$review->id])}}">スパム解除する</a>
+                                                <a onclick="return confirmDelete('選択したレビューを削除しますか？')"
+                                                    class="dropdown-item"
+                                                    href="{{route('brand.review.delete',['review'=>$review->id])}}">削除</a>
                                             </div>
                                         </div>
                                     </td>
