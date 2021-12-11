@@ -34,22 +34,22 @@ abstract class ApiResourceController extends BaseController
 
     protected function createResultResponse($data)
     {
-        return $data ? $this->successResponse(['message' => 'Create Successful!']) : $this->errorResponse();
+        return $data ? $this->successResponse(['message' => 'Create Successful!']) : $this->errorResponseSystem();
     }
 
     protected function resultResponse($data)
     {
-        return $data ? $this->successResponse(['message' => 'Update Successful!']) : $this->errorResponse();
+        return $data ? $this->successResponse(['message' => 'Update Successful!']) : $this->errorResponseSystem();
     }
 
     protected function deleteResultResponse($data)
     {
-        return $data ? $this->successResponse(['message' => 'Delete Successful!']) : $this->errorResponse();
+        return $data ? $this->successResponse(['message' => 'Delete Successful!']) : $this->errorResponseSystem();
     }
 
     protected function restoreResultResponse($data)
     {
-        return $data ? $this->successResponse(['message' => 'Restore Successful!']) : $this->errorResponse();
+        return $data ? $this->successResponse(['message' => 'Restore Successful!']) : $this->errorResponseSystem();
     }
 
     protected function successResponse($responseData = null)
