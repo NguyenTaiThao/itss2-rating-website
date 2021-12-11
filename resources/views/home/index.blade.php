@@ -62,12 +62,13 @@
                             <h5 class="card-title">{{$post->title}}</h5>
 
                             <p class="card-text">{{substr($post->content, 0, 100)}}...</p>
+                            <span style="font-size:14px">カテゴリー：{{$post->productCategory->name}}</span>
                             <div class="row w-100 d-flex align-items-center position-absolute" style="bottom:10px">
                                 <div class="col-6 btn-group pl-0">
                                     <a href="{{route('post.show',['post'=>$post->id])}}"
-                                        class="btn btn-sm btn-outline-secondary">詳細</a>
+                                        class="btn btn-sm btn-outline-secondary  border-success">詳細</a>
                                     <a href="{{route('post.review', ['post'=>$post->id])}}"
-                                        class="btn btn-sm btn-outline-secondary">レビューを作成する</a>
+                                        class="btn btn-sm btn-outline-secondary  border-success">レビューを作成する</a>
                                 </div>
                                 <div class="col-6 text-right d-inline-block">
                                     @if($post->rating_point > 0)

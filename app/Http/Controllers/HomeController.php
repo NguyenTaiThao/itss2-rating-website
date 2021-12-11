@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         $keyword = $request->get('keyword');
         $product_category_id = $request->get('product_category_id');
-        
+
         $productTypes = ProductCategory::all();
 
         $posts = Post::when($product_category_id, function ($query, $product_category_id) {

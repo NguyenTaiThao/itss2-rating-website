@@ -10,6 +10,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
+    protected $with = ['productCategory'];
 
     protected $fillable = ['user_id', 'title', 'content', 'img_url', 'product_category_id'];
 
@@ -51,7 +52,8 @@ class Post extends Model
         return $this->hasMany(Review::class, 'post_id', 'id')->where('is_spam', false);
     }
 
-    public function brand(){
+    public function brand()
+    {
         return $this->belongsTo(Brand::class, 'user_id');
     }
 }

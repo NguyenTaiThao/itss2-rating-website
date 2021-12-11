@@ -27,9 +27,12 @@
                         {{$post->content}}
                     </p>
                 </div>
-                <div class="col-12 mt-3 text-right">
+                <div class="col-6">
+                    <span　 class="text-muted">カテゴリー：{{$post->productCategory->name}}</span>
+                </div>
+                <div class="col-6 text-right">
                     <span class="text-muted">
-                        {{$post->brand->name}}
+                        作家：{{$post->brand->name}}
                     </span>
                 </div>
             </div>
