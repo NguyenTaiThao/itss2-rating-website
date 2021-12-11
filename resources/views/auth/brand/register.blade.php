@@ -12,7 +12,8 @@
                     <div class="text-center text-muted mb-4">
                         <h2 class="text-light">{{ __('新規登録') }}</h2>
                     </div>
-                    <form role="form" method="POST" enctype="multipart/form-data" action="{{ route('brand.register') }}">
+                    <form role="form" method="POST" enctype="multipart/form-data"
+                        action="{{ route('brand.register') }}">
                         @csrf
 
                         <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -20,7 +21,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('ブランドの名前') }}" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                                <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('ブランドの名前') }}" type="text" name="name" value="{{ old('name') }}"
+                                    required autofocus>
                             </div>
                             @if ($errors->has('name'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -31,10 +34,13 @@
 
                         <div class="form-group{{ $errors->has('company_category_id') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
-                                <select value="{{old('company_category_id')}}" id="company_category_id" name="company_category_id" class="form-control">
+                                <select value="{{old('company_category_id')}}" id="company_category_id"
+                                    name="company_category_id" class="form-control">
                                     <option selected disabled>ブランドのカテゴリを選択してください</option>
                                     @foreach($companyTypes as $companyType)
-                                    <option value="{{$companyType->id}}" {{old("company_category_id") == $companyType->id ? "selected" : ""}}>{{$companyType->name}}</option>
+                                    <option value="{{$companyType->id}}"
+                                        {{old("company_category_id") == $companyType->id ? "selected" : ""}}>
+                                        {{$companyType->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -50,7 +56,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('メールアドレス') }}" type="email" name="email" value="{{ old('email') }}" required>
+                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('メールアドレス') }}" type="email" name="email"
+                                    value="{{ old('email') }}" required>
                             </div>
                             @if ($errors->has('email'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -64,7 +72,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-images"></i></i></span>
                                 </div>
-                                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="file" name="logo" value="{{ old('logo') }}" required>
+                                <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="file"
+                                    name="logo" value="{{ old('logo') }}" required>
                             </div>
                             @if ($errors->has('logo'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -78,7 +87,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('パスワード') }}" type="password" name="password" required>
+                                <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('パスワード') }}" type="password" name="password" required>
                             </div>
                             @if ($errors->has('password'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -91,17 +101,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                 </div>
-                                <input class="form-control" placeholder="{{ __('パスワード確認') }}" type="password" name="password_confirmation" required>
-                            </div>
-                        </div>
-                        <div class="row my-4">
-                            <div class="col-12">
-                                <div class="custom-control custom-control-alternative custom-checkbox">
-                                    <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                                    <label class="custom-control-label" for="customCheckRegister">
-                                        <span class="text-muted">{{ __('プライバシーポリシー及び使用規則を理解して同意しました') }} <a href="#!">{{ __('プライバシーポリシー') }}</a></span>
-                                    </label>
-                                </div>
+                                <input class="form-control" placeholder="{{ __('パスワード確認') }}" type="password"
+                                    name="password_confirmation" required>
                             </div>
                         </div>
                         <div class="text-center">
