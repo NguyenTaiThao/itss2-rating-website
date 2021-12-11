@@ -27,7 +27,7 @@ Route::prefix("v1")->group(function () {
     });
     Route::middleware('auth:sanctum')->group(function () {
         Route::resource("posts", PostController::class)->only(["index", 'destroy']);
-        Route::resource("admins", AdminController::class)->only(["index", 'store', 'update']);
+        Route::resource("admins", AdminController::class)->only(["index", 'store', 'update', 'destroy']);
         Route::resource("brands", BrandController::class)->only(["index", 'update']);
         Route::post('brands/accept/{brand}', [BrandController::class, 'accept']);
         Route::post('brands/reject/{brand}', [BrandController::class, 'reject']);
