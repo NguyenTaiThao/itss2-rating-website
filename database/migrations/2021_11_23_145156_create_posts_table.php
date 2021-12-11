@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('product_category_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('product_category_id')->references('id')->on('product_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
