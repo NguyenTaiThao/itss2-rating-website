@@ -31,7 +31,7 @@ class PostFactory extends Factory
             'user_id' => $this->faker->randomElement(PostFactory::$userIds),
             'title' => $this->faker->sentence(10, true),
             'content' => $this->faker->paragraph(10, true),
-            'img_url' =>  $this->faker->image('storage/app/public/post-images',  640,  480),
+            'img_url' =>  'post-images/image.png',
             'product_category_id' => $this->faker->randomElement(PostFactory::$productCategoryIds),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now', $timezone = null)
         ];

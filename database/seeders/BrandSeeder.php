@@ -30,6 +30,6 @@ class BrandSeeder extends Seeder
             ],
         ]);
 
-        // Brand::factory()->count(100)->create();
+        Brand::factory()->count(10)->create();
     }
 }

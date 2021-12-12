@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call([AdminSeeder::class]);
         $this->call([CompanyCategorySeeder::class]);
         $this->call([ProductCategorySeeder::class]);
-        // $this->call([UserSeeder::class]);
+        $this->call([UserSeeder::class]);
         $this->call([BrandSeeder::class]);
-        // $this->call([PostSeeder::class]);
-        // $this->call([ReviewSeeder::class]);
+        $this->call([PostSeeder::class]);
+        $this->call([ReviewSeeder::class]);
     }
 }

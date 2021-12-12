@@ -27,21 +27,6 @@ class ProductCategorySeeder extends Seeder
             [
                 'name' => '帽子',
             ],
-            [
-                'name' => 'ワイン',
-            ],
-            [
-                'name' => 'ビール',
-            ],
-            [
-                'name' => 'スマホ',
-            ],
-            [
-                'name' => 'タブレット',
-            ],
-            [
-                'name' => 'タブレット',
-            ],
         ]);
     }
 }
