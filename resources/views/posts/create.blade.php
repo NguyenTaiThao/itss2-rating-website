@@ -32,24 +32,30 @@
                                     <div class="col-md-7">
                                         <div class="form-group">
                                             <label for="title">タイトル</label>
-                                            <input value="{{old('title')}}" type="text" class="form-control" name="title" id="title" aria-describedby="titleHelper" placeholder="タイトルを書いてください">
+                                            <input value="{{old('title')}}" type="text" class="form-control"
+                                                name="title" id="title" aria-describedby="titleHelper"
+                                                placeholder="タイトルを書いてください">
                                             @if($errors->has('title'))
                                             <div class="text-danger">{{ $errors->first('title') }}</div>
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label for="content">内容内容</label>
-                                            <textarea name="content" id="content" class="form-control" cols="30" rows="10">{{old('content')}}</textarea>
+                                            <label for="content">内容</label>
+                                            <textarea name="content" id="content" class="form-control" cols="30"
+                                                rows="10">{{old('content')}}</textarea>
                                             @if($errors->has('content'))
                                             <div class="text-danger">{{ $errors->first('content') }}</div>
                                             @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="product_category_id">製品のカテゴリ</label>
-                                            <select value="{{old('product_category_id')}}" id="product_category_id" name="product_category_id" class="form-control">
+                                            <select value="{{old('product_category_id')}}" id="product_category_id"
+                                                name="product_category_id" class="form-control">
                                                 <option selected disabled>製品のカテゴリを選択してください</option>
                                                 @foreach($productTypes as $productType)
-                                                <option value="{{$productType->id}}" {{old("product_category_id") == $productType->id ? "selected" : ""}}>{{$productType->name}}</option>
+                                                <option value="{{$productType->id}}"
+                                                    {{old("product_category_id") == $productType->id ? "selected" : ""}}>
+                                                    {{$productType->name}}</option>
                                                 @endforeach
                                             </select>
                                             @if($errors->has('product_category_id'))
@@ -63,7 +69,8 @@
                                             <div class="file-drop-area">
                                                 <span class="choose-file-button">画像を選択してください</span>
                                                 <span class="file-message">ここでファイルを選択またはドラッグアンドドロップして下さい</span>
-                                                <input type="file" name="image" class="file-input" accept=".jfif,.jpg,.jpeg,.png,.gif" value="{{old('image')}}">
+                                                <input type="file" name="image" class="file-input"
+                                                    accept=".jfif,.jpg,.jpeg,.png,.gif" value="{{old('image')}}">
                                             </div>
                                             @if($errors->has('image'))
                                             <div class="text-danger">{{ $errors->first('image') }}</div>
