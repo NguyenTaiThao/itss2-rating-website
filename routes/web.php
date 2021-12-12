@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'welcome'])->name('welcome');
-Route::get('/upgrade', function(){
+Route::get('/upgrade', function () {
     return view('upgrade.index');
 })->name('upgrade');
 
@@ -71,7 +72,10 @@ Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
     ]);
 
     Route::group(['middleware' => ['auth:brand', 'brand']], function () {
-        Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
+        // Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/home', function () {
+            return Redirect::route('brand.post');
+        })->name('dashboard');
 
         Route::resource('user', UserController::class, ['except' => ['show']]);
 
