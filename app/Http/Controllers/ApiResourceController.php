@@ -172,7 +172,7 @@ abstract class ApiResourceController extends BaseController
                                 $this->query->orderBy($table . '.' . $sortParams[0], isset($sortParams[1]) ? $sortParams[1] : 'asc');
                             }
                         }
-                    }z
+                    }
                 } catch (\Exception $e) {
                     continue;
                 }
