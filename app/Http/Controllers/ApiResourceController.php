@@ -179,7 +179,8 @@ abstract class ApiResourceController extends BaseController
             }
         }
 
-        return $this->query->paginate($this->request->per_page ?? 50, $fields);
+        // return $this->query->paginate($this->request->per_page ?? 50, $fields);
+        return $this->query->get();
     }
 
     /**
