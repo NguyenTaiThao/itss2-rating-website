@@ -172,14 +172,14 @@ abstract class ApiResourceController extends BaseController
                                 $this->query->orderBy($table . '.' . $sortParams[0], isset($sortParams[1]) ? $sortParams[1] : 'asc');
                             }
                         }
-                    }
+                    }z
                 } catch (\Exception $e) {
                     continue;
                 }
             }
         }
 
-        return $this->query->get();
+        return $this->query->paginate($this->request->per_page ?? 50, $fields);
     }
 
     /**
