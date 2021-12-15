@@ -33,8 +33,19 @@ class UserRequest extends FormRequest
                 'required', 'email', Rule::unique((new User)->getTable())->ignore($this->route()->user->id ?? null)
             ],
             'password' => [
-                $this->route()->user ? 'nullable' : 'required', 'confirmed', 'min:6'
+                $this->route()->user ? 'nullable' : 'required', 'confirmed'
             ]
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => '名前が必須です',
+            'email.required' => 'メールアドレスが必須です',
+            'password.required' => 'パスワードが必須です',
+            'password.confirmed' => 'パスワードとパスワード確認が違いました',
+            'password.nullable' => 'パスワードが必須です',
         ];
     }
 }

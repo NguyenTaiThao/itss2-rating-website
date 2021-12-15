@@ -30,4 +30,16 @@ class PostUpdateRequest extends FormRequest
             'product_category_id' => 'required|exists:product_categories,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'タイトルが必須です',
+            'title.min' => 'タイトルが短すぎました',
+            'content.required' => 'コンテンツが必須です',
+            'content.min' => 'コンテンツが短すぎました',
+            'image.image' => '選択したフィールはイメージのフォーマットじゃないです',
+            'product_category_id.required' => '製品のカテゴリが必須です',
+        ];
+    }
 }

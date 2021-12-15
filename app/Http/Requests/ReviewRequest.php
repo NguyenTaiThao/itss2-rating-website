@@ -28,4 +28,12 @@ class ReviewRequest extends FormRequest
             'content' => 'required|min:1'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'rating.required' => '星評価の点数が必須です',
+            'content.required' => 'レビューのコンテンツが必須です',
+        ];
+    }
 }
