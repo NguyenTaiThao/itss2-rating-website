@@ -21,7 +21,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('メールアドレス') }}" type="email" name="email" value="{{ old('email') }}" value="admin@argon.com" required autofocus>
+                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('メールアドレス') }}" type="email" name="email"
+                                    value="{{ old('email') }}" value="admin@argon.com" required autofocus>
                             </div>
                             @if ($errors->has('email'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -34,7 +36,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('パスワード') }}" type="password" required>
+                                <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                    name="password" placeholder="{{ __('パスワード') }}" type="password" required>
                             </div>
                             @if ($errors->has('password'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -43,7 +46,7 @@
                             @endif
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary my-4">{{ __('サイイン') }}</button>
+                            <button type="submit" class="btn btn-primary my-4">{{ __('ログイン') }}</button>
                         </div>
                     </form>
                 </div>
