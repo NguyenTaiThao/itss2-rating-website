@@ -43,4 +43,9 @@ class LoginController extends Controller
     {
         return Auth::guard('user');
     }
+
+    protected function getFailedLoginMessage()
+    {
+        return 'what you want here.';
+    }
 }
