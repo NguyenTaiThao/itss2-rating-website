@@ -68,6 +68,28 @@
                                     name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">お気に入りのブランド?</label>
+                            <div class="input-group input-group-alternative">
+                                <select name='interested_brands[]' class="form-select w-100 border-0" multiple
+                                    aria-label="multiple select">
+                                    @foreach($brands as $brand)
+                                    <option value={{$brand->id}}>{{$brand->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="form-label">お気に入りの商品?</label>
+                            <div class="input-group input-group-alternative">
+                                <select name='interested_product_categories[]' class="form-select w-100 border-0"
+                                    multiple aria-label="multiple select">
+                                    @foreach($productCategories as $productCategory)
+                                    <option value={{$productCategory->id}}>{{$productCategory->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary mt-4">{{ __('新規登録') }}</button>
                         </div>
