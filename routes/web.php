@@ -6,6 +6,7 @@ use App\Http\Controllers\Brand\UserController;
 use App\Http\Controllers\Brand\Auth\LoginController as BrandLoginController;
 use App\Http\Controllers\Brand\Auth\RegisterController as BrandRegisterController;
 use App\Http\Controllers\Brand\Auth\ForgotPasswordController as BrandForgotPasswordController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
@@ -36,6 +37,7 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
 Route::group(['middleware' => 'auth:user'], function () {
     Route::get('/posts/review/{post}', [PostController::class, 'review'])->name('post.review');
     Route::post('/posts/review/{post}', [PostController::class, '_review'])->name('post._review');
+    Route::post('/comment', [CommentController::class, '_store'])->name('comment.reply');
 });
 
 Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {

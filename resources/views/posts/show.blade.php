@@ -38,6 +38,30 @@
             </div>
 
             <div class="row mt-5 pt-5">
+                <div class="col-12 mb-3">
+                    <form method="get" class="w-100 d-flex justify-content-end ">
+                        <select class="form-select form-control d-inline-block mr-2" style="width: 200px !important;"
+                            aria-label="Default select example" name="star_filter">
+                            <option value="">レビューのフィルタ</option>
+                            <option value="1" {{request()->get('star_filter') == 1 ? 'selected' : ''}}>
+                                <span>星の１つ</span>
+                            </option>
+                            <option value="2" {{request()->get('star_filter') == 2 ? 'selected' : ''}}>
+                                星の２つ</i>
+                            </option>
+                            <option value="3" {{request()->get('star_filter') == 3 ? 'selected' : ''}}>
+                                星の３つ
+                            </option>
+                            <option value="4" {{request()->get('star_filter') == 4 ? 'selected' : ''}}>
+                                星の４つ
+                            </option>
+                            <option value="5" {{request()->get('star_filter') == 5 ? 'selected' : ''}}>
+                                星の５つ
+                            </option>
+                        </select>
+                        <button class="btn btn-success" type="submit">探索する</button>
+                    </form>
+                </div>
                 @if(count($reviews) == 0)
                 <a href="{{route('post.review', ['post'=>$post->id])}}"
                     class="alert alert-light w-100 text-center text-white">レビューがまだありません。レビューを作成しましょう。</a>
@@ -51,6 +75,36 @@
                             <input type="number" class="rating" min=0 max=5 step=0.5 data-size="sm"
                                 value={{$review->rating}} readonly="true">
                             <p class="card-text">{{$review->content}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach($review->comments as $comment)
+                        <div class="col-11 offset-1 mt-1">
+                            <div class="shadow-lg">
+                                <div class="row">
+                                    <div class="col-2  bg-lighter d-flex justify-content-center align-items-center">
+                                        <span class=" bg-lighter py-2"><i class="fas fa-reply"></i>
+                                            {{$comment->user->name}}</span>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="card-body  py-2">
+                                            <p class="card-text">{{$comment->content}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        <div class="col-11 offset-1 mt-1 pl-0">
+                            <form method="POST" action="{{route('comment.reply')}}">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text" class="form-control"
+                                        placeholder="{{$review->user->name}}のレビューへ返事する" name="content">
+                                    <input type="hidden" name="review_id" value="{{$review->id}}">
+                                    <button class="btn btn-outline-primary" type="submit">返事</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
