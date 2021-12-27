@@ -26,6 +26,7 @@ class HomeController extends Controller
             return Redirect('brand/home');
         }
         $suggested = null;
+        $isTopVoting = false;
         $keyword = $request->get('keyword');
         $product_category_id = $request->get('product_category_id');
 
@@ -45,10 +46,11 @@ class HomeController extends Controller
         if (!$suggested) {
             $suggested = Post::all();
             $suggested = $suggested->sortByDesc('rating_time');
+            $isTopVoting = true;
         }
 
-        $suggested = $this->paginate($suggested, 5);
-        return view('home.index', ['posts' => $posts, 'suggests' => $suggested, 'productTypes' => $productTypes]);
+        $suggested = $this->paginate($suggested, 10);
+        return view('home.index', ['posts' => $posts, 'suggests' => $suggested, 'productTypes' => $productTypes, 'isTopVoting' => $isTopVoting]);
     }
 
     private function suggesting($user)

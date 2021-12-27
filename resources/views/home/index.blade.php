@@ -105,7 +105,12 @@
                 <div class="col-3 pl-5">
                     <div class="row bg-success text-white mb-3 d-flex justify-content-center align-items-center"
                         style="height: 30px;">
-                        気になっている商品</div>
+                        @if($isTopVoting)
+                        人気のある商品
+                        @else
+                        気になっている商品
+                        @endif
+                    </div>
                     @foreach($suggests as $suggest)
                     <a href="{{route('post.show',['post'=>$suggest->id])}}">
                         <div class="row mb-2 bg-light d-flex justify-content-center align-items-center"
@@ -118,9 +123,9 @@
                     @endforeach
 
                     <!-- navigator -->
-                    <nav aria-label="Page navigation" class="d-flex justify-content-center">
+                    <!-- <nav aria-label="Page navigation" class="d-flex justify-content-center">
                         {{ $suggests->links("pagination::bootstrap-4") }}
-                    </nav>
+                    </nav> -->
                 </div>
             </div>
 
