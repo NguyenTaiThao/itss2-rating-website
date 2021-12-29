@@ -57,16 +57,23 @@
                                     </td>
                                     <td> {{$post->created_at}}</td>
                                     <td>
-                                        <img src="{{asset('storage/'.$post->img_url)}}" alt="post-image" style="width:200px;">
+                                        <img src="{{asset('storage/'.$post->img_url)}}" alt="post-image"
+                                            style="width:200px;">
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown">
-                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{route('brand.post.edit',[$post->id])}}">更新</a>
-                                                <a class="dropdown-item" onclick="return confirmDelete('選択したポストを削除しますか？');" href="{{route('brand.post.delete',[$post->id])}}">削除</a>
+                                                <a class="dropdown-item"
+                                                    href="{{route('brand.post.show',[$post->id])}}">詳細</a>
+                                                <a class="dropdown-item"
+                                                    href="{{route('brand.post.edit',[$post->id])}}">更新</a>
+                                                <a class="dropdown-item"
+                                                    onclick="return confirmDelete('選択したポストを削除しますか？');"
+                                                    href="{{route('brand.post.delete',[$post->id])}}">削除</a>
                                             </div>
                                         </div>
                                     </td>

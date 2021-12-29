@@ -15,26 +15,32 @@
                 </div>
                 <div class="col-md-6 d-flex flex-column justify-content-center">
                     <h1>{{$post->title}}</h1>
-                    <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}}
-                        readonly="true">
+                    <div class="mt-3">
+                        <span　 class="text-muted">カテゴリー：{{$post->productCategory->name}}</span>
+                        <div class="">
+                            <p>
+                                {{$post->content}}
+                            </p>
+                        </div>
+                    </div>
                     <small class="text-muted d-inline-block">{{$post->rating_time}} 評価回数</small>
-                    <div>
-                        <a href="{{route('post.review', ['post'=>$post->id])}}" class="btn btn-info mt-4">レビューを作成する</a>
+                    <div class="row align-items-center">
+                        <div class="col-6  d-flex align-items-center mt-3">
+                            <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}}
+                                readonly="true">
+                        </div>
+                        <div class="col-6 d-flex align-items-center">
+                            <a href="{{route('brand.post.edit', ['post'=>$post->id])}}" class="btn btn-warning mt-4">
+                                <i class="far fa-edit mr-1"></i>編集
+                            </a>
+                            <a href="{{route('brand.post.delete', ['post'=>$post->id])}}" class="btn btn-danger mt-4">
+                                <i class="far fa-trash-alt mr-1"></i>削除
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 mt-4">
-                    <p>
-                        {{$post->content}}
-                    </p>
-                </div>
-                <div class="col-6">
-                    <span　 class="text-muted">カテゴリー：{{$post->productCategory->name}}</span>
-                </div>
-                <div class="col-6 text-right">
-                    <span class="text-muted">
-                        作家：{{$post->brand->name}}
-                    </span>
-                </div>
+
+
             </div>
 
             <div class="row mt-5 pt-5">
@@ -71,18 +77,33 @@
                                 星の５つ
                             </option>
                         </select>
-                        <button class="btn btn-success" type="submit"><i class="fas fa-search"></i>探索する</button>
+                        <button class="btn btn-success" type="submit"><i class="fas fa-search mr-1"></i>探索する</button>
                     </form>
                 </div>
                 @if(count($reviews) == 0)
-                <a href="{{route('post.review', ['post'=>$post->id])}}"
-                    class="alert alert-light w-100 text-center text-white">レビューがまだありません。</a>
+                <a class="alert alert-light w-100 text-center text-white">レビューがまだありません。</a>
                 @endif
 
                 @foreach($reviews as $review)
                 <div class="col-12 mb-5">
                     <div class="card shadow-lg">
-                        <h5 class="card-header bg-lighter py-2">{{$review->user->name}}</h5>
+                        <div class="card-header bg-lighter py-2">
+                            <div class="row">
+                                <div class="col-6 d-flex align-items-center">
+                                    <h5>{{$review->user->name}}</h5>
+                                </div>
+                                <div class="col-6 d-flex align-items-center justify-content-end">
+                                    <a href="{{$review->is_spam ?route('brand.review.markAsUnspam',['review'=>$review->id]): route('brand.review.markAsSpam',['review'=>$review->id])}}"
+                                        class="btn btn-sm {{$review->is_spam ? 'btn-danger':'btn-primary'}}"
+                                        @if($review->is_spam)
+                                        <i class="far fa-eye"></i>表示
+                                        @else
+                                        <i class=" far fa-eye-slash mr-1"></i>漏れる
+                                        @endif
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body  py-2">
                             <input type="number" class="rating" min=0 max=5 step=0.5 data-size="sm"
                                 value={{$review->rating}} readonly="true">
@@ -95,8 +116,9 @@
                             <div class="shadow-lg">
                                 <div class="row">
                                     <div class="col-2  bg-lighter d-flex justify-content-center align-items-center">
-                                        <span class=" bg-lighter py-2"><i class="fas fa-reply"></i>
-                                            {{$comment->user ? $comment->user->name : 'ADMIN'}}</span>
+                                        <span class=" bg-lighter py-2'}}"><i class="fas fa-reply"></i>
+                                            {{$comment->user ? $comment->user->name : 'ADMIN'}}
+                                        </span>
                                     </div>
                                     <div class="col-9">
                                         <div class="card-body  py-2">
@@ -108,7 +130,7 @@
                         </div>
                         @endforeach
                         <div class="col-11 offset-1 mt-1 pl-0">
-                            <form method="POST" action="{{route('comment.reply')}}">
+                            <form method="POST" action="{{route('brand.comment.reply')}}">
                                 @csrf
                                 <div class="input-group">
                                     <input type="text" class="form-control"
