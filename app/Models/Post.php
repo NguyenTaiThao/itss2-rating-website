@@ -55,6 +55,11 @@ class Post extends Model
         return $this->hasMany(Review::class, 'post_id', 'id')->where('is_spam', false);
     }
 
+    public function reviewsAll()
+    {
+        return $this->hasMany(Review::class, 'post_id', 'id');
+    }
+
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'user_id');

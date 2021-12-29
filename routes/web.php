@@ -86,11 +86,13 @@ Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
         Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
 
         Route::get('post-management', [PostController::class, 'index'])->name('post');
+        Route::get('post/show/{post}', [PostController::class, 'showBrand'])->name('post.show');
         Route::get('post/create', [PostController::class, 'create'])->name('post.create');
         Route::post('post/create', [PostController::class, '_create'])->name('post._create');
         Route::get('post/edit/{post}', [PostController::class, 'edit'])->name('post.edit');
         Route::post('post/edit/{post}', [PostController::class, '_edit'])->name('post._edit');
         Route::get('post/delete/{post}', [PostController::class, '_delete'])->name('post.delete');
+        Route::post('/comment', [CommentController::class, '_storeAdmin'])->name('comment.reply');
 
         Route::get('review-management', [ReviewController::class, 'index'])->name('review');
         Route::get('spam-review-management', [ReviewController::class, 'spam'])->name('review.spam');

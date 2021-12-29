@@ -21,4 +21,15 @@ class CommentController extends Controller
             dd($err);
         }
     }
+
+    public function _storeAdmin(CommentRequest $request)
+    {
+        $data = $request->only(['user_id', 'review_id', 'content']);
+        try {
+            Comment::insert($data);
+            return Redirect::back();
+        } catch (\Exception $err) {
+            dd($err);
+        }
+    }
 }

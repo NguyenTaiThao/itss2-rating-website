@@ -35,6 +35,17 @@ class PostController extends Controller
         return view('posts.show', ['post' => $post, 'reviews' => $reviews]);
     }
 
+    public function showBrand(Request $request, Post $post)
+    {
+        $star = $request->get('star_filter');
+
+        $reviews = $post->reviewsAll()->when($star, function ($query, $star) use ($post) {
+            return $query->where('rating', $star);
+        })->with('user')->orderBy('id', 'desc')->paginate(10);
+
+        return view('posts.show_admin', ['post' => $post, 'reviews' => $reviews]);
+    }
+
     public function create()
     {
         $productTypes = ProductCategory::all();
