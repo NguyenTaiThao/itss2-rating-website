@@ -11,10 +11,10 @@
             <form method="get">
                 <div class="row">
                     <div class="col-9">
-                        <div class="row mb-3 bg-light align-items-center" style="height: 90px;">
+                        <div class="row mb-3 align-items-center" style="height: 90px;">
                             <div class="col-md-4">
                                 <div class="form-group mb-0">
-                                    <div class="input-group input-group-alternative">
+                                    <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fas fa-search"></i></span>
                                         </div>
@@ -115,9 +115,10 @@
                     <a href="{{route('post.show',['post'=>$suggest->id])}}">
                         <div class="row mb-2 bg-light d-flex justify-content-center align-items-center"
                             style="height: 120px;">
-                            <div class="col-5"><img src="{{asset('storage/' . $suggest->img_url)}}" alt="image"
-                                    style="width:100%;"></div>
-                            <div class="col-5"><span style="font-size:small">{{$suggest->title}}</span></div>
+                            <div class="col-5 px-0 d-flex align-items-center" style="overflow-y: hidden;"><img
+                                    src="{{asset('storage/' . $suggest->img_url)}}" alt="image"
+                                    style="width:119px !important; height:119px !important"></div>
+                            <div class="col-7"><span style="font-size:small">{{$suggest->title}}</span></div>
                         </div>
                     </a>
                     @endforeach

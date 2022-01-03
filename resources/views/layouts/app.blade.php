@@ -33,7 +33,6 @@
     <form id="logout-form" action="{{ route('brand.logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-    @include('layouts.navbars.sidebar')
     @endauth
     @auth('user')
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
