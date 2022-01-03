@@ -2,9 +2,27 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
-            href="{{ route('brand.dashboard') }}">{{ __('ダッシュボード') }}</a>
+        <!-- <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
+            href="{{ route('brand.dashboard') }}">{{ __('ダッシュボード') }}</a> -->
         <!-- User -->
+        <!-- Brand -->
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">
+            <img src="{{ asset('argon') }}/img/brand/icon_name_white.png" class="navbar-brand-img w-75" alt="...">
+        </a>
+        <!-- Navbar items -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ route('brand.post') }}">
+                    <span class="nav-link-inner--text">{{ __('ポストの一覧') }}</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ route('brand.post.create') }}">
+                    <span class="nav-link-inner--text">{{ __('ポストの作成') }}</span>
+                </a>
+            </li>
+        </ul>
+
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
