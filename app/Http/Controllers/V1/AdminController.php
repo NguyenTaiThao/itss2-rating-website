@@ -14,21 +14,6 @@ class AdminController extends ApiResourceController
         $this->model = new Admin();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        if (method_exists($this, 'addFilter')) {
-            $this->addFilter();
-        }
-        $data = Admin::where('id', '<>', $request->user()->id)->get();
-        return response()->json($data);
-    }
-
     public function store(Request $request)
     {
         $data = $request->only($this->model->getFillable());
