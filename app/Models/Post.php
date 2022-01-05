@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
-    protected $with = ['productCategory'];
+    protected $with = ['productCategory', 'brand'];
 
     protected $fillable = ['user_id', 'title', 'content', 'img_url', 'product_category_id'];
 
