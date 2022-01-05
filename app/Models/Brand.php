@@ -17,6 +17,13 @@ class Brand extends Authenticatable
 
     protected $fillable = ['name', 'email', 'password', 'logo_path', 'company_category_id'];
 
+    protected $with = ['category'];
+
+    public function category()
+    {
+        return $this->belongsTo(CompanyType::class, 'company_category_id', 'id');
+    }
+
     public function posts()
     {
         return $this->HasMany(Post::class, 'user_id', 'id');
