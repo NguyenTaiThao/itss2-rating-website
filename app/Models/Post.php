@@ -45,11 +45,19 @@ class Post extends Model
         $isAuth = Auth::check();
         if ($isAuth) {
             $userId = Auth::user()->id;
-            return $this->hasMany(Review::class, 'post_id', 'id')->where('is_spam', false)->orWhere(function ($query) use ($userId) {
-                $query->where(['is_spam' => true, 'user_id' => $userId]);
+
+            return $this->hasMany(Review::class, 'post_id', 'id')->where(function ($query) use ($userId) {
+                $query->where('is_spam', false)->orWhere(function ($query) use ($userId) {
+                    $query->where(['is_spam' => true, 'user_id' => $userId]);
+                });
             });
         }
         return $this->hasMany(Review::class, 'post_id', 'id')->where('is_spam', false);
+    }
+
+    public function reviewsAll()
+    {
+        return $this->hasMany(Review::class, 'post_id', 'id');
     }
 
     public function brand()

@@ -44,4 +44,14 @@ class User extends Authenticatable
     ];
 
     protected $guard = 'user';
+
+    public function interestedBrands()
+    {
+        return $this->belongsToMany(Brand::class, InterestedBrand::class, 'user_id', 'brand_id');
+    }
+
+    public function interestedProductCategories()
+    {
+        return $this->belongsToMany(ProductCategory::class, InterestedProductCategory::class, 'user_id', 'product_category_id');
+    }
 }

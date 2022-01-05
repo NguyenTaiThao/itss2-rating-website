@@ -6,6 +6,7 @@ use App\Http\Controllers\Brand\UserController;
 use App\Http\Controllers\Brand\Auth\LoginController as BrandLoginController;
 use App\Http\Controllers\Brand\Auth\RegisterController as BrandRegisterController;
 use App\Http\Controllers\Brand\Auth\ForgotPasswordController as BrandForgotPasswordController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
@@ -36,6 +37,7 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('post.show');
 Route::group(['middleware' => 'auth:user'], function () {
     Route::get('/posts/review/{post}', [PostController::class, 'review'])->name('post.review');
     Route::post('/posts/review/{post}', [PostController::class, '_review'])->name('post._review');
+    Route::post('/comment', [CommentController::class, '_store'])->name('comment.reply');
 });
 
 Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
@@ -84,11 +86,13 @@ Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
         Route::put('profile/password', [ProfileController::class, 'password'])->name('profile.password');
 
         Route::get('post-management', [PostController::class, 'index'])->name('post');
+        Route::get('post/show/{post}', [PostController::class, 'showBrand'])->name('post.show');
         Route::get('post/create', [PostController::class, 'create'])->name('post.create');
         Route::post('post/create', [PostController::class, '_create'])->name('post._create');
         Route::get('post/edit/{post}', [PostController::class, 'edit'])->name('post.edit');
         Route::post('post/edit/{post}', [PostController::class, '_edit'])->name('post._edit');
         Route::get('post/delete/{post}', [PostController::class, '_delete'])->name('post.delete');
+        Route::post('/comment', [CommentController::class, '_storeAdmin'])->name('comment.reply');
 
         Route::get('review-management', [ReviewController::class, 'index'])->name('review');
         Route::get('spam-review-management', [ReviewController::class, 'spam'])->name('review.spam');

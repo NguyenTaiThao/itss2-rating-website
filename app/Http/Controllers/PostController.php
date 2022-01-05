@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Error;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -23,10 +24,26 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
-    public function show(Post $post)
+    public function show(Request $request, Post $post)
     {
-        $reviews = $post->reviews()->with('user')->orderBy('id', 'desc')->paginate(10);
+        $star = $request->get('star_filter');
+
+        $reviews = $post->reviews()->when($star, function ($query, $star) use ($post) {
+            return $query->where('rating', $star);
+        })->with('user')->orderBy('id', 'desc')->paginate(10);
+
         return view('posts.show', ['post' => $post, 'reviews' => $reviews]);
+    }
+
+    public function showBrand(Request $request, Post $post)
+    {
+        $star = $request->get('star_filter');
+
+        $reviews = $post->reviewsAll()->when($star, function ($query, $star) use ($post) {
+            return $query->where('rating', $star);
+        })->with('user')->orderBy('id', 'desc')->paginate(10);
+
+        return view('posts.show_admin', ['post' => $post, 'reviews' => $reviews]);
     }
 
     public function create()

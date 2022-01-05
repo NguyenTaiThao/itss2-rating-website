@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\ProductCategory;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,15 +67,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if (isset($data['interested_brands'])) {
+            $user->interestedBrands()->attach($data['interested_brands']);
+        }
+
+        if (isset($data['interested_product_categories'])) {
+            $user->interestedProductCategories()->attach($data['interested_product_categories']);
+        }
+
+        return $user;
     }
 
     protected function guard()
     {
         return Auth::guard('user');
+    }
+
+    public function showRegistrationForm()
+    {
+        $brands = Brand::all();
+        $productCategories = ProductCategory::all();
+
+        return view('auth.register', ['brands' => $brands, 'productCategories' => $productCategories]);
     }
 }

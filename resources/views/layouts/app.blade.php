@@ -33,7 +33,6 @@
     <form id="logout-form" action="{{ route('brand.logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
-    @include('layouts.navbars.sidebar')
     @endauth
     @auth('user')
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -104,4 +103,8 @@ $(document).on('change', '.file-input', function() {
 
 
 });
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+})
 </script>
