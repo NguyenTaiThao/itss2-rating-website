@@ -13,11 +13,6 @@ class BrandController extends ApiResourceController
         $this->model = new Brand();
     }
 
-    public function index(Request $request)
-    {
-        return Brand::where('is_active', false)->get();
-    }
-
     public function accept(Brand $brand)
     {
         try {
