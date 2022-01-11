@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="main-content">
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-        <div class="container-fluid">
-        </div>
+    <div class="header bg-gradient-primary pt-3 pt-md-7">
     </div>
     <div class="album py-5 bg-white">
         <div class="container">

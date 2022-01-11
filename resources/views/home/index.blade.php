@@ -2,9 +2,7 @@
 
 @section('content')
 <div class="main-content">
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-        <div class="container-fluid">
-        </div>
+    <div class="header bg-gradient-primary pt-3 pt-md-7">
     </div>
     <div class="album py-5 bg-white">
         <div class="container-fluid">
@@ -69,7 +67,8 @@
 
                         @foreach($posts as $post)
                         <div class="col-md-4 mb-4">
-                            <div class="card mb-4 box-shadow h-100 shadow-lg">
+                            <div class="card mb-4 box-shadow h-100 shadow-lg"
+                                style="border-width: 2px; border-color:#bbb">
                                 <a href="{{route('post.show',['post'=>$post->id])}}">
                                     <img class="card-img-top" src="{{asset('storage/' . $post->img_url)}}"
                                         alt="post logo" style="height: 225px; width: 100%; display: block;"

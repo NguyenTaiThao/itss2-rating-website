@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="main-content">
-    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="header bg-gradient-primary  pt-md-7">
         <div class="container-fluid">
         </div>
     </div>
@@ -29,6 +29,7 @@
                             <input type="number" class="rating" min=0 max=5 data-size="lg" value={{$post->rating_point}}
                                 readonly="true">
                         </div>
+                        @if($post->brand->id == auth()->user()->id)
                         <div class="col-6 d-flex align-items-center">
                             <a href="{{route('brand.post.edit', ['post'=>$post->id])}}" class="btn btn-warning mt-4">
                                 <i class="far fa-edit mr-1"></i>編集
@@ -37,6 +38,7 @@
                                 <i class="far fa-trash-alt mr-1"></i>削除
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
 
@@ -92,6 +94,7 @@
                                 <div class="col-6 d-flex align-items-center">
                                     <h5>{{$review->user->name}}</h5>
                                 </div>
+                                @if($post->brand->id == auth()->user()->id))
                                 <div class="col-6 d-flex align-items-center justify-content-end">
                                     <a href="{{$review->is_spam ?route('brand.review.markAsUnspam',['review'=>$review->id]): route('brand.review.markAsSpam',['review'=>$review->id])}}"
                                         class="btn btn-sm {{$review->is_spam ? 'btn-danger':'btn-primary'}}"
@@ -102,6 +105,7 @@
                                         @endif
                                     </a>
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <div class="card-body  py-2">
@@ -129,6 +133,7 @@
                             </div>
                         </div>
                         @endforeach
+                        @if($post->brand->id == auth()->user()->id)
                         <div class="col-11 offset-1 mt-1 pl-0">
                             <form method="POST" action="{{route('brand.comment.reply')}}">
                                 @csrf
@@ -140,6 +145,7 @@
                                 </div>
                             </form>
                         </div>
+                        @endif
                     </div>
                 </div>
                 @endforeach
