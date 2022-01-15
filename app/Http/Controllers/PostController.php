@@ -157,7 +157,7 @@ class PostController extends Controller
 
             Post::whereId($post->id)->update($data);
 
-            return Redirect::back()->with('成功', '更新が成功しました!');
+            return Redirect::route('brand.post.show', ['post' => $post->id]);
         } catch (\Exception $error) {
             return Redirect::back()->with('エラー', '更新はエラーになりました!');
         }

@@ -13,12 +13,12 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link nav-link-icon" href="{{ route('brand.post') }}">
-                    <span class="nav-link-inner--text">{{ __('ポストの一覧') }}</span>
+                    <span class="nav-link-inner--text"><i class="fas fa-list"></i>{{ __('ポストの一覧') }}</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link nav-link-icon" href="{{ route('brand.post.create') }}">
-                    <span class="nav-link-inner--text">{{ __('ポストの作成') }}</span>
+                    <span class="nav-link-inner--text"><i class="fas fa-pencil-alt"></i>{{ __('ポストの作成') }}</span>
                 </a>
             </li>
         </ul>

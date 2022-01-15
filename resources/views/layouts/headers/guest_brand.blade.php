@@ -4,7 +4,6 @@
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-6">
                     <h1 class="text-white">{{ __('ハローキトへようこそ。') }}</h1>
-                    <h1 class="text-white">{{ __('ブランドを後押ししましょう。') }}</h1>
                 </div>
             </div>
         </div>
