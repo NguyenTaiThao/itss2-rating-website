@@ -53,7 +53,7 @@ class PostController extends Controller
             $isTopVoting = true;
         }
 
-        $suggested = $this->paginate($suggested, 10);
+        $suggested = $this->paginate($suggested, 5);
         return view('posts.index', ['posts' => $posts, 'suggests' => $suggested, 'productTypes' => $productTypes, 'isTopVoting' => $isTopVoting]);
     }
 
