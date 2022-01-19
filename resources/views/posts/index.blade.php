@@ -47,11 +47,11 @@
                         </div>
 
                         <!-- <div class="col-3 border-left border-white" style="border-left-width: 15px !important;">
-                                                                        <div class="row mb-3 bg-light align-items-center d-flex justify-content-center"
-                                                                            style="height: 90px;">
-                                                                            <b class="text-white">気になっている商品</b>
-                                                                        </div>
-                                                                    </div> -->
+                                                                                            <div class="row mb-3 bg-light align-items-center d-flex justify-content-center"
+                                                                                                style="height: 90px;">
+                                                                                                <b class="text-white">気になっている商品</b>
+                                                                                            </div>
+                                                                                        </div> -->
                     </div>
                 </form>
 
@@ -108,7 +108,7 @@
 
                     <div class="col-3 pl-5">
                         <div class="row bg-success text-white mb-3 d-flex justify-content-center align-items-center"
-                            style="height: 30px;">
+                            style="height: 30px; border-radius:6px">
                             @if ($isTopVoting)
                                 人気のある商品
                             @else
@@ -118,7 +118,7 @@
                         @foreach ($suggests as $suggest)
                             <a href="{{ route('brand.post.show', ['post' => $suggest->id]) }}">
                                 <div class="row mb-2 bg-light d-flex justify-content-center align-items-center"
-                                    style="height: 120px;">
+                                    style="height: 120px;border: #bbb solid 1.5px; border-radius:7px">
                                     <div class="col-5 px-0 d-flex align-items-center" style="overflow-y: hidden;"><img
                                             src="{{ asset('storage/' . $suggest->img_url) }}" alt="image"
                                             style="width:119px !important; height:119px !important"></div>
@@ -131,8 +131,8 @@
 
                         <!-- navigator -->
                         <!-- <nav aria-label="Page navigation" class="d-flex justify-content-center">
-                                                                        {{ $suggests->links('pagination::bootstrap-4') }}
-                                                                    </nav> -->
+                                                                                            {{ $suggests->links('pagination::bootstrap-4') }}
+                                                                                        </nav> -->
                     </div>
                 </div>
 
